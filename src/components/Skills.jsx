@@ -1,53 +1,88 @@
-import React from "react";
+import React, { useState } from "react";
+import { 
+  SiHtml5, SiCss3, SiTailwindcss, SiBootstrap, SiReact, SiNextdotjs, SiJavascript, SiTypescript, SiReactrouter,
+  SiNodedotjs, SiExpress, SiNestjs, SiJsonwebtokens, SiPostman, SiFirebase,
+  SiMongodb, SiPostgresql, SiGit, SiNpm, SiInsomnia, 
+  SiReactquery
+} from "react-icons/si";
+
+const skillCategories = {
+  Frontend: [
+    { name: "HTML", icon: <SiHtml5 size={28} color="#E34F26" /> },
+    { name: "CSS", icon: <SiCss3 size={28} color="#1572B6" /> },
+    { name: "Tailwind", icon: <SiTailwindcss size={28} color="#38B2AC" /> },
+    { name: "Bootstrap", icon: <SiBootstrap size={28} color="#7952B3" /> },
+    { name: "Shadcn UI", icon: <SiReactquery size={28} color="#6366F1" /> },
+    { name: "JavaScript", icon: <SiJavascript size={28} color="#F7DF1E" /> },
+    { name: "TypeScript", icon: <SiTypescript size={28} color="#3178C6" /> },
+    { name: "React", icon: <SiReact size={28} color="#61DAFB" /> },
+    { name: "Next.js", icon: <SiNextdotjs size={28} /> },
+    { name: "React Router", icon: <SiReactrouter size={28} color="#CA4245" /> },
+  ],
+  Backend: [
+    { name: "Node.js", icon: <SiNodedotjs size={28} color="#339933" /> },
+    { name: "Express", icon: <SiExpress size={28} /> },
+    { name: "Nest.js", icon: <SiNestjs size={28} color="#E0234E" /> },
+    { name: "REST API", icon: <SiPostman size={28} color="#FF6C37" /> },
+    { name: "JWT", icon: <SiJsonwebtokens size={28} color="#000000" /> },
+  ],
+  Database: [
+    { name: "MongoDB", icon: <SiMongodb size={28} color="#47A248" /> },
+    { name: "PostgreSQL", icon: <SiPostgresql size={28} color="#336791" /> },
+    { name: "Firebase", icon: <SiFirebase size={28} color="#FFCA28" /> },
+  ],
+  Tools: [
+    { name: "Git", icon: <SiGit size={28} color="#F05032" /> },
+    { name: "npm", icon: <SiNpm size={28} color="#CB3837" /> },
+    { name: "Postman", icon: <SiPostman size={28} color="#FF6C37" /> },
+    { name: "Insomnia", icon: <SiInsomnia size={28} color="#4000BF" /> },
+  ]
+};
 
 const Skills = () => {
-  const skillsData = [
-    {
-      category: "Programming Languages",
-      skills: ["C", "C++", "JavaScript"],
-    },
-    {
-      category: "Frontend",
-      skills: ["HTML", "Tailwind", "Bootstrap", "Javascript", "React", "DaisyUI"],
-    },
-    {
-      category: "Backend & Database",
-      skills: ["Firebase", "MySQL", "MongoDB Atlas", "Node JS", "Express JS"],
-    },
-    {
-      category: "Tools & Others",
-      skills: ["GitHub", "VS Code", "Netlify", "Vercel"],
-    },
-  ];
+  const [activeTab, setActiveTab] = useState("Frontend");
 
   return (
-    <section id="skills" className="w-11/12 mx-auto py-20">
-      <h2 className="text-3xl md:text-4xl font-bold poppins text-indigo-600 mb-12 text-center">
-        Skills
-      </h2>
+    <section className="md:py-15 py-10 bg-white dark:bg-gray-900">
+      <div className="w-[90%] mx-auto text-center">
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {skillsData.map((item, index) => (
-          <div
-            key={index}
-            className="bg-gray-50 p-6 rounded-2xl shadow-md hover:shadow-lg transition duration-300"
-          >
-            <h3 className="font-bold poppins text-indigo-600 text-lg mb-4">
-              {item.category}
-            </h3>
-            <ul className="space-y-2">
-              {item.skills.map((skill, i) => (
-                <li
-                  key={i}
-                  className="poppins text-gray-700 text-sm md:text-base flex items-center gap-2"
-                >
-                  <span className="w-2 h-2 bg-indigo-600 rounded-full"></span>
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {/* Title */}
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12">
+          Skills
+        </h2>
+
+        {/* Responsive Tabs */}
+        <div className="flex flex-wrap md:justify-center sm:justify-start gap-2 mb-12">
+          {Object.keys(skillCategories).map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className={`px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300
+                ${activeTab === category
+                  ? "bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 shadow-md"
+                  : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-center">
+          {skillCategories[activeTab].map((skill, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center p-4 rounded-xl border border-gray-100 bg-gray-100 hover:scale-110 transition-transform duration-300"
+            >
+              <div className="mb-2">{skill.icon}</div>
+              <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+                {skill.name}
+              </span>
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

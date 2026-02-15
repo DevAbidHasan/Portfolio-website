@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <section className="py-32 bg-white dark:bg-gray-900">
+    <section className="lg:py-32 md:py-24 py-15 bg-white dark:bg-gray-900">
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between w-full gap-12 lg:gap-16 lg:w-[90%] mx-auto">
 
         {/* LEFT SIDE - Optional Minimal Icon */}
