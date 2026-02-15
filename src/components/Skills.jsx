@@ -43,16 +43,19 @@ const Skills = () => {
   const [activeTab, setActiveTab] = useState("Frontend");
 
   return (
-    <section className="md:py-15 py-10 bg-white dark:bg-gray-900">
+    <section id="skills" className="py-22 bg-white dark:bg-gray-900">
       <div className="w-[90%] mx-auto text-center">
 
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 dark:text-white ">
           Skills
         </h2>
+        <p className="text-gray-600 dark:text-gray-300 mb-12">
+  Technologies and tools I use to build modern and scalable web applications.
+</p>
 
         {/* Responsive Tabs */}
-        <div className="flex flex-wrap md:justify-center sm:justify-start gap-2 mb-12">
+        <div className="flex  p-2 bg-gray-100 rounded-lg flex-wrap md:justify-center sm:justify-start gap-3 mb-12">
           {Object.keys(skillCategories).map((category) => (
             <button
               key={category}
@@ -69,7 +72,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
           {skillCategories[activeTab].map((skill, index) => (
             <div
               key={index}

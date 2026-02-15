@@ -33,7 +33,7 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center 
+      className="min-h-screen  flex items-center justify-center 
     pt-32 pb-20"
     >
       <div
