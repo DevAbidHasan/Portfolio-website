@@ -18,7 +18,7 @@ const Certifications = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white">
           Certifications
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm md:text-base">
+        <p className="my-5 mb-5 text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm md:text-base">
           Professional certifications and online courses I've completed to sharpen my skills.
         </p>
       </div>

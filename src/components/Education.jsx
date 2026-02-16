@@ -1,55 +1,86 @@
 import React from "react";
+import { IoSchoolSharp } from "react-icons/io5";
+import { FaLocationDot } from "react-icons/fa6";
 
 const Education = () => {
-  const educationData = [
-    {
-      degree: "SSC - Science Group",
-      year: "2019",
-      result: "GPA 5.00",
-    },
-    {
-      degree: "HSC - Science Group",
-      year: "2021",
-      result: "GPA 5.00",
-    },
-    {
-      degree: "Undergrad - CSE Dept, Jahangirnagar University",
-      year: "2023 - Running",
-      result: "",
-    },
-  ];
-
   return (
-    <section id="education" className="w-11/12 mx-auto py-20">
-      <h2 className="text-3xl md:text-4xl font-bold poppins text-indigo-600 mb-12 text-center">
-        Education
-      </h2>
+    <section className="bg-white pt-20 px-4">
+      <div className="max-w-5xl mx-auto">
 
-      <div className="relative border-l-2 border-indigo-300 ml-4 md:ml-12">
-        {educationData.map((edu, index) => (
-          <div
-            key={index}
-            className="mb-10 ml-4 md:ml-8 relative"
-          >
-            {/* Timeline Circle */}
-            <span className="absolute -left-6 md:-left-8 top-1 w-4 h-4 md:w-5 md:h-5 rounded-full bg-indigo-600 border-2 border-white"></span>
+        {/* Section Header */}
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
+            Education
+          </h2>
+          <p className="text-neutral-500 text-sm md:text-base">
+            A timeline of my academic growth and technical foundation
+          </p>
+        </div>
 
-            {/* Education Content */}
-            <div className="bg-gray-50 p-5 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-              <h3 className="poppins font-bold text-indigo-600 text-lg md:text-xl">
-                {edu.degree}
+        {/* Timeline Wrapper */}
+        <div className="relative">
+
+          {/* Vertical Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 h-full w-[1.5px] bg-gradient-to-b from-pink-500 to-blue-600 md:-translate-x-1/2"></div>
+
+          {/* ===== Item 1 ===== */}
+          <div className="relative mb-20 md:w-1/2 md:pr-14 md:text-right">
+            
+            {/* Dot */}
+            <div className="absolute left-4 animate-pulse md:left-auto md:right-[-8px] top-3 w-3 h-3 bg-blue-600 rounded-full ring-4 ring-blue-100"></div>
+
+            <div className="bg-gray-50 p-8 rounded-3xl border border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+              
+              <span className="inline-block text-xs tracking-wider text-neutral-400 mb-3">
+                2023 — 2027 ( Running )
+              </span>
+
+              <h3 className="text-xl font-semibold">
+                B.Sc in Computer Science & Engineering
               </h3>
-              <p className="ibm text-gray-600 text-sm md:text-base">
-                Year: {edu.year}
+
+              <p className="text-md flex items-center justify-start md:justify-end gap-6 text-neutral-600 mt-2">
+                <IoSchoolSharp size={20}/>Jahangirnagar University
+                
               </p>
-              {edu.result && (
-                <p className="ibm text-gray-600 text-sm md:text-base">
-                  Result: {edu.result}
-                </p>
-              )}
+              <p className="text-md flex items-center justify-start md:justify-end gap-6 text-neutral-600 mt-2">
+                <FaLocationDot size={18}/>Savar, Dhaka - 1342
+                
+              </p>
+
+
+              
             </div>
           </div>
-        ))}
+
+          {/* ===== Item 2 ===== */}
+          <div className="relative mb-20 md:w-1/2 md:ml-auto md:pl-14">
+            
+            {/* Dot */}
+            <div className="absolute animate-pulse left-4 md:left-[-8px] top-3 w-3 h-3 bg-orange-400 rounded-full ring-4 ring-yellow-300"></div>
+
+            <div className="bg-gray-50 p-8 rounded-3xl border border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+              
+              <span className="inline-block text-xs tracking-wider text-neutral-400 mb-3">
+                2019 — 2021
+              </span>
+              <h3 className="text-xl font-semibold">
+                HSC in Science
+              </h3>
+              <p className="text-md flex items-center justify-start gap-6 text-neutral-600 mt-2">
+                <IoSchoolSharp size={20}/>Shahid Syed Nazrul Islam College
+                
+              </p>
+              <p className="text-md flex items-center justify-start gap-6 text-neutral-600 mt-2">
+                <FaLocationDot size={18}/>Mymensingh
+                
+              </p>
+
+              
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

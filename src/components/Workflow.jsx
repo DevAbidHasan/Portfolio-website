@@ -45,7 +45,7 @@ const Workflow = () => {
               className="border border-gray-200 bg-gray-50 dark:border-gray-700 
               rounded-2xl p-8 hover:shadow-md transition-all duration-500"
             >
-              <span className="text-sm font-bold tracking-[0.2em] text-green-500">
+              <span className="text-lg font-bold tracking-[0.2em] text-green-500">
                 {step.number}
               </span>
 
