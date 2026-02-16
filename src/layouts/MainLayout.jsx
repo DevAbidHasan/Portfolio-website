@@ -13,7 +13,7 @@ const MainLayout = () => {
     let value = 0;
 
     const interval = setInterval(() => {
-      value += 2; // controls speed
+      value += 8; // controls speed
       setProgress(value);
 
       if (value >= 100) {
@@ -34,7 +34,7 @@ const MainLayout = () => {
         {/* Greeting Text */}
         <h1 className="text-3xl md:text-4xl font-semibold tracking-wide
         mb-6 text-center animate-fadeIn">
-          This is Plabon & Welcome to My Portfolio 👋
+          Welcome to My Portfolio
         </h1>
 
         {/* Progress Bar Container */}
@@ -52,7 +52,7 @@ const MainLayout = () => {
 
         {/* Percentage Text */}
         <p className="mt-3 text-sm text-zinc-400">
-          Loading {progress}%
+          Launching... {progress}%
         </p>
 
       </div>
