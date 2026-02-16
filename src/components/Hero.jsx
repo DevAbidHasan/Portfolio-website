@@ -125,7 +125,7 @@ const Hero = () => {
               {/* Available for Work Badge */}
               <div className="mt-4 flex items-center gap-2">
                 <span className="w-3 h-3 bg-green-500 rounded-full animate-ping inline-block"></span>
-                <span className="text-xs font-medium text-green-700">
+                <span className="text-xs font-medium text-green-600">
                   Available for Remote Jobs
                 </span>
               </div>

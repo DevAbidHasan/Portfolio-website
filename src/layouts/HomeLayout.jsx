@@ -7,6 +7,7 @@ import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Certifications from '../components/Certifications';
 import Workflow from '../components/Workflow';
+import CTA from '../components/CTA';
 
 const HomeLayout = () => {
     return (
@@ -18,7 +19,7 @@ const HomeLayout = () => {
             <Projects></Projects>
             <Education></Education>
             <Certifications></Certifications>
-            <Contact></Contact>
+            <CTA></CTA>
         </div>
     );
 };

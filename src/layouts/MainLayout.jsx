@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
+import { Toaster } from 'react-hot-toast';
 
 const MainLayout = () => {
 
@@ -62,6 +63,7 @@ const MainLayout = () => {
   return (
     <div className='lg:w-[60%] md:w-[85%] w-[95%] mx-auto'>
       <Navbar />
+      <Toaster/>
       <ScrollToTop/>
       <Outlet />
       <Footer />
