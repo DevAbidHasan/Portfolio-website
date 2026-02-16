@@ -6,12 +6,14 @@ import Education from '../components/Education';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Certifications from '../components/Certifications';
+import Workflow from '../components/Workflow';
 
 const HomeLayout = () => {
     return (
         <div>
             <Hero></Hero>
             <About></About>
+            <Workflow></Workflow>
             <Skills></Skills>
             <Projects></Projects>
             <Education></Education>

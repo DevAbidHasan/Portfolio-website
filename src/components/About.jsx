@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 
 const About = () => {
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  const threshold = 15; // controls tilt strength
+
+  const handleMove = (e) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+
+    setTilt({
+      x: y * -threshold,
+      y: x * threshold,
+    });
+  };
+
   return (
     <section className="relative lg:pt-32 md:py-24 py-16 bg-white dark:bg-gray-900 overflow-hidden">
 
       {/* Background Text */}
-      <h1 className="absolute top-2 left-1/2 -translate-x-1/2 
-      text-[80px] sm:text-[120px] lg:text-[160px] 
-      font-extrabold text-gray-200 dark:text-gray-800 
-      opacity-40 select-none pointer-events-none">
+      <h1
+        className="absolute top-2 left-1/2 -translate-x-1/2 
+        text-[80px] sm:text-[120px] lg:text-[160px] 
+        font-extrabold text-gray-200 dark:text-gray-800 
+        opacity-40 select-none pointer-events-none"
+      >
         ABOUT
       </h1>
 
@@ -28,18 +47,29 @@ const About = () => {
             </p>
           </div>
 
-          {/* Right Side - Premium Minimal Card */}
+          {/* Right Side - Premium Animated Card */}
           <div className="relative">
 
-            <div className="
-              bg-blue-100/30 border border-zinc-200 dark:bg-gray-800
-               dark:border-gray-700
-              rounded-3xl
-              p-12
-              shadow-sm
-              hover:shadow-xl
-              transition-all duration-500
-            ">
+            <div
+              onMouseMove={handleMove}
+              onMouseLeave={() => setTilt({ x: 0, y: 0 })}
+              style={{
+                transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+              }}
+              className="
+                bg-blue-200/30 border-1 border-blue-100 dark:bg-gray-800
+                dark:border-gray-700
+                rounded-3xl
+                p-12
+                hover:border-blue-300
+                shadow-sm
+                
+                hover:shadow-blue-50
+                hover:shadow-2xl
+                transition-transform duration-200 ease-out
+                will-change-transform
+              "
+            >
 
               <div className="grid grid-cols-2 gap-y-12 gap-x-6 text-center">
 
@@ -72,10 +102,10 @@ const About = () => {
                 {/* Stat 3 */}
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Full Stack 
+                    Full Stack
                   </h3>
                   <p className="mt-3 text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
-                    Development 
+                    Development
                   </p>
                 </div>
 
@@ -90,7 +120,6 @@ const About = () => {
                 </div>
 
               </div>
-
             </div>
 
           </div>
