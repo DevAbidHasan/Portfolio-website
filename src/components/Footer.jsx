@@ -5,9 +5,9 @@ import { BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   return (
     <div>
-      <hr className="text-gray-200" />
+      <hr className="text-gray-200 mt-15 w-[90%] mx-auto" />
       <div>
-        <div className="flex items-center gap-5 justify-center mt-10">
+        <div className="flex items-center gap-5  justify-center mt-10">
           <div className="relative group">
               <a href="https://github.com/DevAbidHasan" target='_blank'>
                 <SiGithub className='text-zinc-700 hover:text-zinc-900' size={22}/>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
       </div>
       <h2 className="text-gray-500 my-8 text-center">
-        &copy; <span className="tracking-[0.1em]">Abid Hasan Plabon. All rights reserved.</span>
+        &copy; <span className="tracking-[0.1em]">2026 Abid Hasan Plabon. All rights reserved.</span>
       </h2>
     </div>
   );

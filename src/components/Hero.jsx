@@ -39,7 +39,8 @@ const Hero = () => {
   const speed = 0.1; // smoothing factor
 
   const handleMove = (e) => {
-    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
     const y = (e.clientY - top) / height - 0.5;
 
@@ -73,9 +74,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-32 pb-20">
+    <section className="min-h-screen w-full mx-auto flex items-center justify-center pt-32 pb-20">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
-
         {/* LEFT SIDE - PHONE MOCKUP */}
         <div className="flex justify-center w-full lg:w-1/2">
           <div
@@ -90,14 +90,23 @@ const Hero = () => {
           >
             {/* Screen */}
             <div className="w-full h-full border-4 border-zinc-950 bg-gradient-to-br from-purple-300 via-indigo-50 to-orange-200 rounded-[30px] overflow-hidden flex flex-col items-center justify-center text-center p-6 relative shadow-lg">
-
               {/* Top Status Area */}
               <div className="absolute top-5 left-6 right-6 flex justify-between text-xs items-center font-medium text-zinc-800">
-                <span><MdReportGmailerrorred size={12} className="text-red-500"/></span>
-                <span><MdOutlinePhoneMissed size={12}/></span>
-                <span><IoPhoneLandscape className="text-green-400 " size={12}/></span>
-                <span><GiNetworkBars size={12}/></span>
-                <span><FiHeadphones  size={12}/></span>
+                <span>
+                  <MdReportGmailerrorred size={12} className="text-red-500" />
+                </span>
+                <span>
+                  <MdOutlinePhoneMissed size={12} />
+                </span>
+                <span>
+                  <IoPhoneLandscape className="text-green-400 " size={12} />
+                </span>
+                <span>
+                  <GiNetworkBars size={12} />
+                </span>
+                <span>
+                  <FiHeadphones size={12} />
+                </span>
                 <span>{formattedTime}</span>
                 <span>Dhaka</span>
               </div>
@@ -131,13 +140,13 @@ const Hero = () => {
               </div>
 
               <div className="flex items-center mt-5 gap-2">
-                <FaPhoneVolume size={22}/> 
+                <FaPhoneVolume size={22} />
                 <span> +8801305-208332</span>
               </div>
               <div className="flex items-center justify-between gap-16 absolute bottom-2.5">
-                <TiLockClosed/>
-                <RiHome2Line/>
-                <IoCameraOutline/>
+                <TiLockClosed />
+                <RiHome2Line />
+                <IoCameraOutline />
               </div>
             </div>
 
@@ -148,9 +157,10 @@ const Hero = () => {
 
         {/* RIGHT SIDE - INTRO */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
+          
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-zinc-900">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500">
-              Abid Hasan Plabon
+              Abid Hasan <br/>Plabon
             </span>
           </h1>
 
@@ -159,9 +169,7 @@ const Hero = () => {
           </h2>
 
           <p className="mt-6 text-zinc-500 max-w-lg mx-auto lg:mx-0">
-            I design and develop scalable web applications using MongoDB,
-            Express, React, and Node.js. Passionate about clean code,
-            performance, and modern UI.
+            I build things for the web combining UI magic and logics together
           </p>
 
           {/* Buttons */}
@@ -170,15 +178,15 @@ const Hero = () => {
               href="#contact"
               className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-pink-500 text-white font-medium hover:scale-105 transition shadow-zinc-500 duration-300 shadow-lg"
             >
-              Contact Me 
+              Contact Me
             </a>
 
             <a
-              href="../../public/Resume-full-stack-Plabon.pdf" 
+              href="../../public/Resume-full-stack-Plabon.pdf"
               download="Resume of Mern Stack Developer Plabon"
               className="px-6 py-3 rounded-full border border-zinc-400 flex items-center justify-center gap-2 text-zinc-700 font-medium hover:bg-zinc-100 shadow-2xl shadow-blue-200 transition duration-300"
             >
-              Resume < MdFileDownload className="animate-pulse" size={25}/>
+              Resume <MdFileDownload className="animate-pulse" size={25} />
             </a>
           </div>
         </div>

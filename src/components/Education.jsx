@@ -5,7 +5,7 @@ import { FaLocationDot } from "react-icons/fa6";
 const Education = () => {
   return (
     <section className="bg-white pt-20 px-4">
-      <div className="max-w-5xl mx-auto">
+      <div className="w-[90%] mx-auto">
 
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -39,11 +39,11 @@ const Education = () => {
                 B.Sc in Computer Science & Engineering
               </h3>
 
-              <p className="text-md flex items-center justify-start md:justify-end gap-6 text-neutral-600 mt-2">
+              <p className="text-sm flex items-center justify-start md:justify-end gap-6 text-neutral-600 mt-2">
                 <IoSchoolSharp size={20}/>Jahangirnagar University
                 
               </p>
-              <p className="text-md flex items-center justify-start md:justify-end gap-6 text-neutral-600 mt-2">
+              <p className="text-sm flex items-center justify-start md:justify-end gap-6 text-neutral-600 mt-2">
                 <FaLocationDot size={18}/>Savar, Dhaka - 1342
                 
               </p>
@@ -67,11 +67,11 @@ const Education = () => {
               <h3 className="text-xl font-semibold">
                 HSC in Science
               </h3>
-              <p className="text-md flex items-center justify-start gap-6 text-neutral-600 mt-2">
+              <p className="text-sm flex items-center justify-start gap-6 text-neutral-600 mt-2">
                 <IoSchoolSharp size={20}/>Shahid Syed Nazrul Islam College
                 
               </p>
-              <p className="text-md flex items-center justify-start gap-6 text-neutral-600 mt-2">
+              <p className="text-sm flex items-center justify-start gap-6 text-neutral-600 mt-2">
                 <FaLocationDot size={18}/>Mymensingh
                 
               </p>

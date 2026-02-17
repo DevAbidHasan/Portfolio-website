@@ -138,7 +138,7 @@ const Navbar = () => {
 
       {/* Side Drawer */}
       <div className={`fixed top-0 right-0 h-full w-[75%] 
-      bg-white shadow-lg transform transition-transform duration-300 
+      bg-white/80 shadow-lg transform transition-transform duration-300 
       md:hidden z-50
       ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
 

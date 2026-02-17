@@ -43,7 +43,7 @@ const About = () => {
             <p className="text-gray-600 dark:text-gray-300 text-justify text-base md:text-lg leading-relaxed">
               I am a 3rd-year, 2nd-semester CSE student at Jahangirnagar University, Savar, Dhaka.
               My focus is on building scalable, maintainable, and user-friendly digital products.
-              I work with React, Next.js, Node.js, Nest.js, and PostgreSQL.
+              I work with <span className="font-semibold text-gray-600">React</span>, <span className="font-semibold text-gray-600">Next.js</span>, <span className="font-semibold text-gray-600">Node.js</span>, <span className="font-semibold text-gray-600">Nest.js</span>, and <span className="font-semibold text-gray-600">PostgreSQL</span>.
             </p>
           </div>
 

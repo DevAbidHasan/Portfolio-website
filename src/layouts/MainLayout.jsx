@@ -14,12 +14,12 @@ const MainLayout = () => {
     let value = 0;
 
     const interval = setInterval(() => {
-      value += 8; // controls speed
+      value += 5; // controls speed
       setProgress(value);
 
       if (value >= 100) {
         clearInterval(interval);
-        setTimeout(() => setLoading(false), 300);
+        setTimeout(() => setLoading(false), 200);
       }
     }, 60); // 60ms × 50 ≈ 3 seconds
 
