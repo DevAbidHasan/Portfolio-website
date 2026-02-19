@@ -33,10 +33,10 @@ const Workflow = () => {
     <section className=" py-16 bg-white dark:bg-gray-900">
       <div className="w-[90%] mx-auto">
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center text-gray-700 dark:text-white mb-6">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl orbitron font-bold text-center text-gray-700 dark:text-white mb-6">
           My Workflow
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-16 text-center">A structured approach I follow to design and build efficient, scalable applications.</p>
+        <p className="text-gray-600 raleway dark:text-gray-300 mb-16 text-center">A structured approach I follow to design and build efficient, scalable applications.</p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {steps.map((step, index) => (
@@ -45,15 +45,15 @@ const Workflow = () => {
               className="border border-gray-200 bg-gray-50 dark:border-gray-700 
               rounded-2xl p-8 hover:shadow-md transition-all duration-500"
             >
-              <span className="text-lg font-bold tracking-[0.2em] text-green-500">
+              <span className="text-lg orbitron font-bold tracking-[0.2em] text-green-500">
                 {step.number}
               </span>
 
-              <h3 className="mt-4 text-xl font-semibold text-gray-900 dark:text-white">
+              <h3 className="mt-4 orbitron text-xl font-semibold text-gray-900 dark:text-white">
                 {step.title}
               </h3>
 
-              <p className="mt-4 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              <p className="mt-4 raleway text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 {step.desc}
               </p>
             </div>

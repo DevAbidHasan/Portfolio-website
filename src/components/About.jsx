@@ -24,7 +24,7 @@ const About = () => {
       {/* Background Text */}
       <h1
         className="absolute top-2 left-1/2 -translate-x-1/2 
-        text-[80px] sm:text-[120px] lg:text-[160px] 
+        text-[80px] orbitron sm:text-[120px] lg:text-[160px] 
         font-extrabold text-gray-200 dark:text-gray-800 
         opacity-40 select-none pointer-events-none"
       >
@@ -36,12 +36,12 @@ const About = () => {
 
           {/* Left Side */}
           <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-6">
+            <h2 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-6">
               About Me
             </h2>
 
-            <p className="text-gray-600 dark:text-gray-300 text-justify text-base md:text-lg leading-relaxed">
-              I am a 3rd-year, 2nd-semester CSE student at Jahangirnagar University, Savar, Dhaka.
+            <p className="text-gray-600 raleway dark:text-gray-300 text-justify text-base md:text-lg leading-relaxed">
+              I am a 3rd-year, 2nd-semester CSE student at <span className="font-semibold text-gray-600">Jahangirnagar University</span>, Savar, Dhaka.
               My focus is on building scalable, maintainable, and user-friendly digital products.
               I work with <span className="font-semibold text-gray-600">React</span>, <span className="font-semibold text-gray-600">Next.js</span>, <span className="font-semibold text-gray-600">Node.js</span>, <span className="font-semibold text-gray-600">Nest.js</span>, and <span className="font-semibold text-gray-600">PostgreSQL</span>.
             </p>
@@ -77,11 +77,11 @@ const About = () => {
                 <div>
                   <h3 className="text-4xl font-semibold 
                   bg-gradient-to-r from-pink-600 via-orange-300 to-yellow-300 
-                  dark:from-white dark:to-gray-400 
+                  dark:from-white orbitron dark:to-gray-400 
                   bg-clip-text text-transparent">
                     1+
                   </h3>
-                  <p className="mt-3 text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
+                  <p className="mt-3 raleway text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
                     Years Experience
                   </p>
                 </div>
@@ -91,30 +91,30 @@ const About = () => {
                   <h3 className="text-4xl font-semibold animate-bounce 
                   bg-gradient-to-r from-blue-700 via-purple-500 to-pink-700 
                   dark:from-white dark:to-gray-400 
-                  bg-clip-text text-transparent">
+                  bg-clip-text orbitron text-transparent">
                     12+
                   </h3>
-                  <p className="mt-3 text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
+                  <p className="mt-3 raleway text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
                     Technologies Mastered
                   </p>
                 </div>
 
                 {/* Stat 3 */}
-                <div>
+                <div className="">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     Full Stack
                   </h3>
-                  <p className="mt-3 text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
+                  <p className="mt-3 raleway text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
                     Development
                   </p>
                 </div>
 
                 {/* Stat 4 */}
-                <div>
+                <div className="">
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                     Clean Code
                   </h3>
-                  <p className="mt-3 text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
+                  <p className="mt-3 raleway text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
                     Focused
                   </p>
                 </div>

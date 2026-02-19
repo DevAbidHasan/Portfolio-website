@@ -9,6 +9,7 @@ import Certifications from '../components/Certifications';
 import Workflow from '../components/Workflow';
 import CTA from '../components/CTA';
 
+
 const HomeLayout = () => {
     return (
         <div>

@@ -34,7 +34,7 @@ const Footer = () => {
             </div>
         </div>
       </div>
-      <h2 className="text-gray-500 my-8 text-center">
+      <h2 className="text-gray-500 raleway text-sm my-8 text-center">
         &copy; <span className="tracking-[0.1em]">2026 Abid Hasan Plabon. All rights reserved.</span>
       </h2>
     </div>

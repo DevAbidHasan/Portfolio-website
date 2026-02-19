@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 
-import img from "../../public/plabon.png";
+import img from "../../public/PXL_20240130_070044507.jpg";
 import { MdFileDownload } from "react-icons/md";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { IoPhoneLandscape } from "react-icons/io5";
@@ -11,6 +11,7 @@ import { GiNetworkBars } from "react-icons/gi";
 import { RiHome2Line } from "react-icons/ri";
 import { IoCameraOutline } from "react-icons/io5";
 import { TiLockClosed } from "react-icons/ti";
+
 
 const Hero = () => {
   const [time, setTime] = useState(new Date());
@@ -108,31 +109,31 @@ const Hero = () => {
                   <FiHeadphones size={12} />
                 </span>
                 <span>{formattedTime}</span>
-                <span>Dhaka</span>
+                <span className="raleway">Dhaka</span>
               </div>
 
               {/* Profile Image */}
               <img
                 src={img}
                 alt="profile"
-                className="w-35 h-35 rounded-full object-cover mb-4 shadow-lg"
+                className="w-35 h-35 border border-green-700 rounded-full object-cover mb-4 shadow-lg"
               />
 
               {/* Name */}
-              <h3 className="text-lg font-semibold text-zinc-900">
+              <h3 className="text-md orbitron font-semibold text-zinc-900">
                 Abid Hasan Plabon
               </h3>
 
               {/* Role */}
-              <p className="text-sm text-zinc-700 mt-1">
+              <p className="text-sm raleway text-zinc-700 mt-1">
                 MERN Stack Software Developer
               </p>
 
               {/* Date */}
-              <div className="mt-2 text-xs text-zinc-600">{formattedDate}</div>
+              <div className="mt-2 text-xs raleway text-zinc-600">{formattedDate}</div>
 
               {/* Available for Work Badge */}
-              <div className="mt-4 flex items-center gap-2">
+              <div className="mt-4 flex raleway items-center gap-2">
                 <span className="w-3 h-3 bg-green-500 rounded-full animate-ping inline-block"></span>
                 <span className="text-xs font-medium text-green-600">
                   Available for Remote Jobs
@@ -158,24 +159,24 @@ const Hero = () => {
         {/* RIGHT SIDE - INTRO */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
           
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-zinc-900">
+          <h1 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold leading-tight text-zinc-900">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500">
               Abid Hasan <br/>Plabon
             </span>
           </h1>
 
-          <h2 className="text-xl md:text-2xl mt-4 text-zinc-600">
+          <h2 className="text-xl raleway md:text-2xl mt-4 text-zinc-600">
             Full Stack MERN Developer
           </h2>
 
-          <p className="mt-6 text-zinc-500 max-w-lg mx-auto lg:mx-0">
+          <p className="mt-6 raleway text-zinc-500 max-w-lg mx-auto lg:mx-0">
             I build things for the web combining UI magic and logics together
           </p>
 
           {/* Buttons */}
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="mt-8 raleway flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a
-              href="#contact"
+              href="mailto:abidhasanplabon80@gmail.com" target="_blank"
               className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-pink-500 text-white font-medium hover:scale-105 transition shadow-zinc-500 duration-300 shadow-lg"
             >
               Contact Me
@@ -191,6 +192,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+     
     </section>
   );
 };

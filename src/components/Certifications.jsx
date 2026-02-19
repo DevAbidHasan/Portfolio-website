@@ -18,10 +18,10 @@ const Certifications = () => {
       className="py-24 w-[90%] mb-10 mx-auto dark:bg-gray-900"
     >
       <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-700 dark:text-white">
-          Certifications
+        <h2 className="text-3xl orbitron md:text-4xl font-bold text-gray-700 dark:text-white">
+           My Certifications
         </h2>
-        <p className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm md:text-base">
+        <p className="mt-4 raleway text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm md:text-base">
           Professional certifications and courses that strengthened my technical expertise.
         </p>
       </div>
@@ -37,7 +37,7 @@ const Certifications = () => {
               <img
                 src={img1}
                 alt="Complete Web Development Course"
-                className="max-h-full max-w-full object-contain"
+                className="max-h-full hover:scale-110 transition-transform duration-300 max-w-full object-contain"
               />
             </div>
           </div>
@@ -47,16 +47,16 @@ const Certifications = () => {
             <Link
               to="https://web.programming-hero.com/course-details"
               target="_blank"
-              className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-500 transition"
+              className="text-lg orbitron font-semibold text-gray-900 dark:text-white hover:text-blue-500 transition"
             >
               Complete Web Development (Level-1)
             </Link>
 
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm raleway text-gray-500 dark:text-gray-400">
               Programming Hero
             </p>
 
-            <p className="text-xs text-gray-400 dark:text-gray-500">
+            <p className="text-xs raleway text-gray-400 dark:text-gray-500">
               Jan 2025 — Sept 2025
             </p>
 
@@ -64,14 +64,14 @@ const Certifications = () => {
               <a
                 href={img1}
                 download="Programming Hero Certification - Plabon"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-blue-600 to-pink-500 text-white hover:scale-105 transition"
+                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-blue-600 to-pink-500 text-white hover:scale-105 transition"
               >
                 <AiOutlineDownload /> Download
               </a>
 
               <button
                 onClick={showPhVerification}
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
               >
                 <BsCheckCircle /> Verify
               </button>
@@ -87,7 +87,7 @@ const Certifications = () => {
               <img
                 src={img2}
                 alt="Responsive Web Design"
-                className="max-h-full max-w-full object-contain"
+                className="max-h-full hover:scale-110 transition-transform duration-300 max-w-full object-contain"
               />
             </div>
           </div>
@@ -96,16 +96,16 @@ const Certifications = () => {
             <Link
               to="https://www.freecodecamp.org/learn/2022/responsive-web-design/"
               target="_blank"
-              className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-500 transition"
+              className="text-lg orbitron font-semibold text-gray-900 dark:text-white hover:text-blue-500 transition"
             >
               Responsive Web Design
             </Link>
 
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm raleway text-gray-500 dark:text-gray-400">
               freeCodeCamp
             </p>
 
-            <p className="text-xs text-gray-400 dark:text-gray-500">
+            <p className="text-xs raleway text-gray-400 dark:text-gray-500">
               July 2025 — Aug 2025
             </p>
 
@@ -113,7 +113,7 @@ const Certifications = () => {
               <a
                 href={img2}
                 download="Freecodecamp Certification - Plabon"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-blue-600 to-pink-500 text-white hover:scale-105 transition"
+                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-blue-600 to-pink-500 text-white hover:scale-105 transition"
               >
                 <AiOutlineDownload /> Download
               </a>
@@ -121,7 +121,7 @@ const Certifications = () => {
               <Link
                 to="https://www.freecodecamp.org/certification/abidhasanplabon/responsive-web-design"
                 target="_blank"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
               >
                 <BsCheckCircle /> Verify
               </Link>

@@ -47,10 +47,10 @@ const Skills = () => {
       <div className="w-[90%] mx-auto text-center">
 
         {/* Title */}
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-6 dark:text-white ">
-          Skills
+        <h2 className="text-3xl orbitron md:text-4xl font-bold text-gray-700 mb-6 dark:text-white ">
+          Skills & Tools
         </h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-12">
+        <p className="text-gray-600 raleway dark:text-gray-300 mb-12">
   Technologies and tools I use to build modern and scalable web applications.
 </p>
 
@@ -60,7 +60,7 @@ const Skills = () => {
             <button
               key={category}
               onClick={() => setActiveTab(category)}
-              className={`px-5 py-2 rounded-lg font-medium text-sm transition-all duration-300
+              className={`px-5 py-2 orbitron rounded-lg font-medium text-sm transition-all duration-300
                 ${activeTab === category
                   ? "bg-gray-800 text-white dark:bg-gray-100 dark:text-gray-900 shadow-md"
                   : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
@@ -76,10 +76,10 @@ const Skills = () => {
           {skillCategories[activeTab].map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center p-4 rounded-xl border border-gray-100 bg-gray-100 hover:scale-110 transition-transform duration-300"
+              className="flex hover:bg-gray-50 flex-col items-center justify-center p-4 rounded-xl border border-gray-100 bg-gray-100 hover:scale-110 transition-transform duration-300"
             >
               <div className="mb-2">{skill.icon}</div>
-              <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+              <span className="text-gray-600 raleway dark:text-gray-300 text-sm font-medium">
                 {skill.name}
               </span>
             </div>
