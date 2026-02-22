@@ -29,7 +29,7 @@ const Education = () => {
             {/* Dot */}
             <div className="absolute left-4 animate-pulse md:left-auto md:right-[-8px] top-3 w-3 h-3 bg-zinc-800 rounded-full ring-4 ring-blue-100"></div>
 
-            <div className="bg-gray-50 p-8 hover:scale-105 duration-200 hover:border-gray-400 transition-transform rounded-3xl border border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+            <div className="bg-gray-50 h-[220px] md:h-[250px] p-8 hover:scale-105 duration-200 hover:border-gray-400 transition-transform rounded-3xl border border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
               
               <span className="inline-block raleway text-xs tracking-wider text-neutral-400 mb-3">
                 2023 — 2027 ( Running )
@@ -56,7 +56,7 @@ const Education = () => {
             {/* Dot */}
             <div className="absolute animate-pulse left-4 md:left-[-8px] top-3 w-3 h-3 bg-zinc-800 rounded-full ring-4 ring-blue-100"></div>
 
-            <div className="bg-gray-50 hover:scale-105 duration-200 hover:border-gray-400 transition-transform p-8 rounded-3xl border border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
+            <div className="bg-gray-50 h-[220px] md:h-[250px] hover:scale-105 duration-200 hover:border-gray-400 transition-transform p-8 rounded-3xl border border-gray-300 shadow-[0_10px_40px_rgba(0,0,0,0.04)]">
               
               <span className="inline-block raleway text-xs tracking-wider text-neutral-400 mb-3">
                 2019 — 2021

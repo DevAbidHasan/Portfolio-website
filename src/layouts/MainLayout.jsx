@@ -33,7 +33,7 @@ const MainLayout = () => {
       text-white">
 
         {/* Greeting Text */}
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-wide
+        <h1 className="text-3xl md:text-4xl lg:text-5xl orbitron font-semibold tracking-wide
         mb-6 text-center animate-fadeIn">
           Welcome to My Portfolio
         </h1>
@@ -52,7 +52,7 @@ const MainLayout = () => {
         </div>
 
         {/* Percentage Text */}
-        <p className="mt-3 text-sm text-zinc-400">
+        <p className="mt-3 raleway text-sm text-zinc-400">
           Launching... {progress}%
         </p>
 
