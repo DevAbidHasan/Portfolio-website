@@ -47,17 +47,17 @@ const Skills = () => {
       <div className="w-[90%] mx-auto text-center">
 
         {/* Title */}
-        <h2 className="text-3xl lg:text-5xl orbitron md:text-4xl font-bold text-gray-700 mb-6 dark:text-white ">
+        <h2 data-aos = "fade-down" className="text-3xl lg:text-5xl orbitron md:text-4xl font-bold text-gray-700 mb-6 dark:text-white ">
           Skills & Tools
         </h2>
-        <p className="text-gray-600 raleway dark:text-gray-300 mb-12">
+        <p data-aos = "fade-down" className="text-gray-600 raleway dark:text-gray-300 mb-12">
   Technologies and tools I use to build modern and scalable web applications.
 </p>
 
         {/* Responsive Tabs */}
-        <div className="flex  p-2 bg-gray-100 rounded-lg flex-wrap md:justify-center sm:justify-start gap-3 mb-12">
+        <div  className="flex  p-2 bg-gray-100 rounded-lg flex-wrap md:justify-center sm:justify-start gap-3 mb-12">
           {Object.keys(skillCategories).map((category) => (
-            <button
+            <button data-aos = "fade-up"
               key={category}
               onClick={() => setActiveTab(category)}
               className={`px-5 py-2 orbitron rounded-lg font-medium text-sm transition-all duration-300
@@ -72,7 +72,7 @@ const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
+        <div data-aos="fade-up" className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 justify-center">
           {skillCategories[activeTab].map((skill, index) => (
             <div
               key={index}

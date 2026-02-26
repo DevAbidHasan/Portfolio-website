@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div className='fixed orbitron top-5 left-0 w-full z-50 flex justify-center'>
       {/* Desktop Navbar */}
-      <div className='lg:w-[60%] md:w-[80%] w-[95%] 
+      <div data-aos="fade-down" data-aos-duration="1500" className='lg:w-[60%] md:w-[80%] w-[95%] 
         px-6 py-3 lg:py-2 rounded-full 
         bg-white/20 backdrop-blur-md border border-zinc-300 
         shadow-sm flex items-center justify-between'>

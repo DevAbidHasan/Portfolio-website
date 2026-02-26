@@ -33,14 +33,14 @@ const Workflow = () => {
     <section className=" py-16 bg-white dark:bg-gray-900">
       <div className="w-[90%] mx-auto">
 
-        <h2 className="text-3xl md:text-4xl lg:text-5xl orbitron font-bold text-center text-gray-700 dark:text-white mb-6">
+        <h2 data-aos="fade-down" className="text-3xl md:text-4xl lg:text-5xl orbitron font-bold text-center text-gray-700 dark:text-white mb-6">
           My Workflow
         </h2>
-        <p className="text-gray-600 raleway dark:text-gray-300 mb-16 text-center">A structured approach I follow to design and build efficient, scalable applications.</p>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <p data-aos="fade-down" className="text-gray-600 raleway dark:text-gray-300 mb-16 text-center">A structured approach I follow to design and build efficient, scalable applications.</p>
+        <div  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {steps.map((step, index) => (
-            <div
+            <div data-aos="zoom-in" data-aos-duration="1000"
               key={index}
               className="border border-gray-200 bg-gray-50 dark:border-gray-700 
               rounded-2xl p-8 hover:shadow-md transition-all duration-500"

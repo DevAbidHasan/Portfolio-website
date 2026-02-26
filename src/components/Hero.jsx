@@ -78,7 +78,7 @@ const Hero = () => {
     <section className="min-h-screen w-full mx-auto flex items-center justify-center pt-32 pb-20">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-16 w-full">
         {/* LEFT SIDE - PHONE MOCKUP */}
-        <div className="flex justify-center w-full lg:w-1/2">
+        <div data-aos = "fade-right" className="flex justify-center w-full lg:w-1/2">
           <div
             className="relative w-[260px] h-[480px] rounded-[40px] bg-zinc-950 p-2 shadow-2xl perspective-[1400px]"
             onMouseMove={handleMove}
@@ -157,7 +157,7 @@ const Hero = () => {
         </div>
 
         {/* RIGHT SIDE - INTRO */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left">
+        <div data-aos="fade-left"  className="w-full lg:w-1/2 text-center lg:text-left">
           
           <h1 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold leading-tight text-zinc-900">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500">
@@ -165,16 +165,16 @@ const Hero = () => {
             </span>
           </h1>
 
-          <h2 className="text-xl raleway md:text-2xl mt-4 text-zinc-600">
+          <h2  className="text-xl raleway md:text-2xl mt-4 text-zinc-600">
             Full Stack MERN Developer
           </h2>
 
-          <p className="mt-6 raleway text-zinc-500 max-w-lg mx-auto lg:mx-0">
+          <p  className="mt-6 raleway text-zinc-500 max-w-lg mx-auto lg:mx-0">
             I build things for the web combining UI magic and logics together
           </p>
 
           {/* Buttons */}
-          <div className="mt-8 raleway flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div  className="mt-8 raleway flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <a
               href="mailto:abidhasanplabon80@gmail.com" target="_blank"
               className="px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 to-pink-500 text-white font-medium hover:scale-105 transition shadow-zinc-500 duration-300 shadow-lg"

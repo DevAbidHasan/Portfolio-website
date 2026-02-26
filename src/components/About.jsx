@@ -22,7 +22,7 @@ const About = () => {
     <section className="relative lg:pt-32 md:py-24 py-16 bg-white dark:bg-gray-900 overflow-hidden">
 
       {/* Background Text */}
-      <h1
+      <h1 data-aos="fade-down"
         className="absolute top-2 left-1/2 -translate-x-1/2 
         text-[80px] orbitron sm:text-[120px] lg:text-[160px] 
         font-extrabold text-gray-200 dark:text-gray-800 
@@ -35,8 +35,8 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left Side */}
-          <div>
-            <h2 className="text-3xl text-center lg:text-start orbitron md:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-6">
+          <div data-aos="fade-up">
+            <h2  className="text-3xl text-center lg:text-start orbitron md:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-6">
               About Me
             </h2>
 
@@ -48,7 +48,7 @@ const About = () => {
           </div>
 
           {/* Right Side - Premium Animated Card */}
-          <div className="relative">
+          <div data-aos="fade-up" data-aos-duration="1500" className="relative">
 
             <div
               onMouseMove={handleMove}

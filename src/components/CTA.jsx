@@ -3,7 +3,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 const CTA = () => {
     return (
-        <div>
+        <div data-aos="flip-down">
             <div className='border-y  border-dashed border-gray-200 w-[90%] mx-auto px-10 sm:px-16'>
             <div className="flex flex-col text-center md:text-left items-center justify-between gap-8 px-3 md:px-10 border-x border-dashed border-slate-200 py-16 sm:py-20 -mt-10 -mb-10 w-full">
                 <h2 className='md:text-3xl text-2xl text-center text-blue-700 lg:text-4xl font-semibold orbitron'>Have any Idea? Lets discuss.</h2>

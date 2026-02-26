@@ -89,14 +89,12 @@ const projects = [
 ];
 
 const Projects = () => {
-  const viewDetails = () => {
-    toast.success("card is openning");
-  };
+  
 
   return (
     <section id="projects" className="py-16 w-[90%] mx-auto dark:bg-gray-900">
       {/* Section Header */}
-      <div className="text-center mb-20">
+      <div data-aos="fade-down" className="text-center mb-20">
         <h2 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
           Featured Projects
         </h2>
@@ -108,9 +106,9 @@ const Projects = () => {
       <Toaster />
 
       {/* Project Grid */}
-      <div className="grid md:grid-cols-2 gap-10">
+      <div  className="grid md:grid-cols-2 gap-10">
         {projects.map((project) => (
-          <div
+          <div data-aos="flip-right"
             key={project.id}
             className="group relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
           >

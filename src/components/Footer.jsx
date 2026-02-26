@@ -5,8 +5,8 @@ import { BsLinkedin } from "react-icons/bs";
 const Footer = () => {
   return (
     <div>
-      <hr className="text-gray-200 mt-15 w-[90%] mx-auto" />
-      <div>
+      <hr data-aos="fade-down" className="text-gray-200 mt-15 w-[90%] mx-auto" />
+      <div data-aos="fade-up">
         <div className="flex items-center gap-5  justify-center mt-10">
           <div className="relative group">
               <a href="https://github.com/DevAbidHasan" target='_blank'>

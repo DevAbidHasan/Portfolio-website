@@ -17,7 +17,7 @@ const Certifications = () => {
       id="certifications"
       className="py-24 w-[90%] mb-10 mx-auto dark:bg-gray-900"
     >
-      <div className="text-center mb-16">
+      <div data-aos="fade-down" className="text-center mb-16">
         <h2 className="text-3xl lg:text-5xl orbitron md:text-4xl font-bold text-gray-700 dark:text-white">
            My Certifications
         </h2>
@@ -29,7 +29,7 @@ const Certifications = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
         {/* ================= CARD 1 ================= */}
-        <div className="bg-white border-gray-200 border dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
+        <div data-aos="zoom-in" className="bg-white border-gray-200 border dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
 
           {/* Image Frame */}
           <div className="bg-blue-50/60 dark:bg-gray-700 p-6 flex justify-center items-center">
@@ -80,7 +80,7 @@ const Certifications = () => {
         </div>
 
         {/* ================= CARD 2 ================= */}
-        <div className="bg-white dark:bg-gray-800 border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
+        <div data-aos="zoom-in" className="bg-white dark:bg-gray-800 border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
 
           <div className="bg-blue-50/60 dark:bg-gray-700 p-6 flex justify-center items-center">
             <div className="w-full max-w-[400px] h-[260px] border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
