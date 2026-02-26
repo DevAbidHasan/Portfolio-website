@@ -9,7 +9,7 @@ const Education = () => {
 
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-3xl orbitron md:text-5xl font-semibold tracking-tight mb-4">
+          <h2 className="text-3xl orbitron lg:text-5xl md:text-4xl font-semibold tracking-tight mb-4">
             Academic Journey
           </h2>
           <p className="text-neutral-500 raleway text-sm md:text-base">

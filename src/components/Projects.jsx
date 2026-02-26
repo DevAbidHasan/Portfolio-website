@@ -1,41 +1,44 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { FaArrowRight } from "react-icons/fa6";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
+import { Link } from "react-router";
 
 const projects = [
   {
     id: 1,
+    title: "My Portfolio Website Project",
+    image: "https://i.postimg.cc/8zyWJm4T/image.png",
+    description:
+      "It is my developer portfolio site showcasing me, my workflow, my skills, my projects, certifications and relevant things all together.",
+    live: "https://plabon.netlify.app/",
+    clientRepo: "https://github.com/DevAbidHasan/Portfolio-website",
+    stack: [
+      "Tailwind",
+      "DaisyUI",
+      "PrebuildUI",
+      "React",
+      "React-hot-toast",
+      "React-Icons",
+    ],
+    type: "Frontend",
+  },
+  {
+    id: 2,
     title: "Dailypress Article Portal",
     image: "https://i.postimg.cc/Gm3Lvm23/Good-Morning-(Facebook-Post).png",
     description:
-      "A full-stack e-commerce platform with authentication, payment integration, and real-time order tracking.",
+      "DailyPress is a modern article management application where users can register, submit articles, and admins can manage users and content.",
     live: "https://dailypress-bf298.web.app/",
     clientRepo: "https://github.com/DevAbidHasan/B11-A12-Dailypress-client",
     serverRepo: "https://github.com/DevAbidHasan/B11-A12-Dailypress-server",
     stack: [
       "Tailwind",
+      "DaisyUI",
       "React",
       "Node.js",
       "Express.js",
-      "MongoDB",
-      "Firebase",
-    ],
-    type: "Full Stack",
-  },
-  {
-    id: 2,
-    title: "Booknest Library Management",
-    image: "https://i.ibb.co.com/vCD0RpN1/image.png",
-    description:
-      "A collaborative task management application with role-based access and real-time updates.",
-    live: "https://book-nest-75887.web.app/",
-    clientRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-client",
-    serverRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-server",
-    stack: [
-      "Tailwind",
-      "React",
-      "Node.js",
-      "Express.js",
+      "Rest API",
       "MongoDB",
       "Firebase",
     ],
@@ -43,15 +46,45 @@ const projects = [
   },
   {
     id: 3,
-    title: "FitSphere",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+    title: "Booknest Library Management",
+    image: "https://i.ibb.co.com/vCD0RpN1/image.png",
     description:
-      "A fitness tracking web app with personalized dashboards and analytics visualization.",
-    live: "https://example.com",
-    clientRepo: "https://github.com/username/fitsphere-client",
-    serverRepo: "https://github.com/username/fitsphere-server",
-    stack: ["React", "Tailwind", "Chart.js", "JWT Auth"],
-    type: "Front End",
+      "BookNest is a library management MERN website which allows registered users to track their library usage history.",
+    live: "https://book-nest-75887.web.app/",
+    clientRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-client",
+    serverRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-server",
+    stack: [
+      "Tailwind",
+      "DaisyUI",
+      "React",
+      "Node.js",
+      "Express.js",
+      "Rest API",
+      "MongoDB",
+      "Firebase",
+    ],
+    type: "Full Stack",
+  },
+  {
+    id: 4,
+    title: "Plantpal Plant Care Tracking",
+    image: "https://i.postimg.cc/KjC1m0DX/image.png",
+    description:
+      "Plantpal is a full-stack MERN website allows registered users to add plants, update them, view and track plant care",
+    live: "https://plantpal-plant-care-tracking.web.app/",
+    clientRepo: "https://github.com/DevAbidHasan/B11-A10-Plantpal-client",
+    serverRepo: "https://github.com/DevAbidHasan/B11-A10-Plantpal-server",
+    stack: [
+      "Tailwind",
+      "DaisyUI",
+      "React",
+      "Node.js",
+      "Express.js",
+      "Rest API",
+      "MongoDB",
+      "Firebase",
+    ],
+    type: "Full Stack",
   },
 ];
 
@@ -64,7 +97,7 @@ const Projects = () => {
     <section id="projects" className="py-16 w-[90%] mx-auto dark:bg-gray-900">
       {/* Section Header */}
       <div className="text-center mb-20">
-        <h2 className="text-3xl orbitron md:text-4xl font-bold text-gray-800 dark:text-white">
+        <h2 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
           Featured Projects
         </h2>
         <p className="mt-4 raleway text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
@@ -86,7 +119,7 @@ const Projects = () => {
               <img
                 src={`${project.image}?auto=format&fit=crop&w=800&q=80`}
                 alt={project.title}
-                className="w-full border-b border-gray-300 bg-white/30 h-full orbitron object-cover transition duration-500 ease-out group-hover:scale-105 "
+                className="w-full p-3 border rounded-3xl border-gray-300 bg-blue-50 h-full orbitron object-cover transition duration-500 ease-out group-hover:scale-105 "
               />
 
               {/* Dark Overlay */}
@@ -111,7 +144,7 @@ const Projects = () => {
                 {project.title}
               </h3>
 
-              <p className="text-sm text-gray-600 raleway dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-justify text-gray-600 raleway dark:text-gray-400 leading-relaxed">
                 {project.description}
               </p>
 
@@ -120,7 +153,7 @@ const Projects = () => {
                 {project.stack.map((tech, index) => (
                   <span
                     key={index}
-                    className="px-3 py-1 text-xs rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600"
+                    className="px-3 text-blue-500 py-1 text-xs rounded-full bg-blue-100/50 dark:bg-gray-700  dark:text-gray-300 border border-blue-200 dark:border-gray-600"
                   >
                     {tech}
                   </span>
@@ -162,6 +195,15 @@ const Projects = () => {
             <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-indigo-500/40 transition duration-500 pointer-events-none"></div>
           </div>
         ))}
+      </div>
+      <div className="flex items-center justify-center">
+        <Link to="https://github.com/DevAbidHasan?tab=repositories" className="btn raleway hover:scale-x-105 transition-transform duration-300 btn-lg text-sm btn-primary rounded-full mt-25 -mb-10">
+          
+            
+              See All Projects <FaArrowRight size={18} />
+          
+         
+        </Link>
       </div>
     </section>
   );

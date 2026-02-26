@@ -36,7 +36,7 @@ const About = () => {
 
           {/* Left Side */}
           <div>
-            <h2 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-6">
+            <h2 className="text-3xl text-center lg:text-start orbitron md:text-4xl lg:text-5xl font-bold text-gray-700 dark:text-white mb-6">
               About Me
             </h2>
 

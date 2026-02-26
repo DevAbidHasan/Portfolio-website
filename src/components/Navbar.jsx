@@ -105,7 +105,7 @@ const Navbar = () => {
 
           {/* Gmail */}
           <div className="relative group">
-            <a href='mailto:abidhasanplabon80@gmail.com'>
+            <a target='_blank' href='mailto:abidhasanplabon80@gmail.com'>
               <SiGmail size={22} className='text-red-500 hover:text-red-600'/>
             </a>
             <span className="absolute -top-9 left-1/2 -translate-x-1/2

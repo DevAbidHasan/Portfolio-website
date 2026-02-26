@@ -183,7 +183,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="../../public/Resume-full-stack-Plabon.pdf"
+              href="../../public/Resume_MERN_Plabon.pdf"
               download="Resume of Mern Stack Developer Plabon"
               className="px-6 py-3 rounded-full border border-zinc-400 flex items-center justify-center gap-2 text-zinc-700 font-medium hover:bg-zinc-100 shadow-2xl shadow-blue-200 transition duration-300"
             >

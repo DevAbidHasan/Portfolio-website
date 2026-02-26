@@ -47,7 +47,7 @@ const Skills = () => {
       <div className="w-[90%] mx-auto text-center">
 
         {/* Title */}
-        <h2 className="text-3xl orbitron md:text-4xl font-bold text-gray-700 mb-6 dark:text-white ">
+        <h2 className="text-3xl lg:text-5xl orbitron md:text-4xl font-bold text-gray-700 mb-6 dark:text-white ">
           Skills & Tools
         </h2>
         <p className="text-gray-600 raleway dark:text-gray-300 mb-12">

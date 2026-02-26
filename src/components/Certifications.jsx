@@ -18,7 +18,7 @@ const Certifications = () => {
       className="py-24 w-[90%] mb-10 mx-auto dark:bg-gray-900"
     >
       <div className="text-center mb-16">
-        <h2 className="text-3xl orbitron md:text-4xl font-bold text-gray-700 dark:text-white">
+        <h2 className="text-3xl lg:text-5xl orbitron md:text-4xl font-bold text-gray-700 dark:text-white">
            My Certifications
         </h2>
         <p className="mt-4 raleway text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm md:text-base">
