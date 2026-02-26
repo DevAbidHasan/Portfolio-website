@@ -29,10 +29,10 @@ const Certifications = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
 
         {/* ================= CARD 1 ================= */}
-        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
+        <div className="bg-white border-gray-200 border dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
 
           {/* Image Frame */}
-          <div className="bg-gray-100 dark:bg-gray-700 p-6 flex justify-center items-center">
+          <div className="bg-blue-50/60 dark:bg-gray-700 p-6 flex justify-center items-center">
             <div className="w-full max-w-[400px] h-[260px] border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
               <img
                 src={img1}
@@ -80,9 +80,9 @@ const Certifications = () => {
         </div>
 
         {/* ================= CARD 2 ================= */}
-        <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
 
-          <div className="bg-gray-100 dark:bg-gray-700 p-6 flex justify-center items-center">
+          <div className="bg-blue-50/60 dark:bg-gray-700 p-6 flex justify-center items-center">
             <div className="w-full max-w-[400px] h-[260px] border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
               <img
                 src={img2}
