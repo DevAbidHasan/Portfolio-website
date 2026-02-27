@@ -12,7 +12,7 @@ import CTA from '../components/CTA';
 
 const HomeLayout = () => {
     return (
-        <div>
+        <div className=''>
             <Hero></Hero>
             <About></About>
             <Workflow></Workflow>

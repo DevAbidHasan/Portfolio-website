@@ -194,7 +194,7 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center">
+      <div data-aos="fade-down" className="flex items-center justify-center">
         <Link to="https://github.com/DevAbidHasan?tab=repositories" className="btn raleway hover:scale-x-105 transition-transform duration-300 btn-lg text-sm btn-primary rounded-full mt-25 -mb-10">
           
             

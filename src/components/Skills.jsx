@@ -57,7 +57,7 @@ const Skills = () => {
         {/* Responsive Tabs */}
         <div  className="flex  p-2 bg-gray-100 rounded-lg flex-wrap md:justify-center sm:justify-start gap-3 mb-12">
           {Object.keys(skillCategories).map((category) => (
-            <button data-aos = "fade-up"
+            <button
               key={category}
               onClick={() => setActiveTab(category)}
               className={`px-5 py-2 orbitron rounded-lg font-medium text-sm transition-all duration-300

@@ -24,7 +24,7 @@ const Education = () => {
           <div className="absolute left-4 md:left-1/2 top-0 h-full w-[1.5px] bg-gray-300 md:-translate-x-1/2"></div>
 
           {/* ===== Item 1 ===== */}
-          <div data-aos="fade-right" className="relative  mb-20 md:w-1/2 md:pr-14 md:text-right">
+          <div data-aos="fade-up" className="relative  mb-20 md:w-1/2 md:pr-14 md:text-right">
             
             {/* Dot */}
             <div className="absolute left-4 animate-pulse md:left-auto md:right-[-8px] top-3 w-3 h-3 bg-zinc-800 rounded-full ring-4 ring-blue-100"></div>
@@ -51,7 +51,7 @@ const Education = () => {
           </div>
 
           {/* ===== Item 2 ===== */}
-          <div data-aos="fade-left" className="relative mb-20 md:w-1/2 md:ml-auto md:pl-14">
+          <div data-aos="fade-up" className="relative mb-20 md:w-1/2 md:ml-auto md:pl-14">
             
             {/* Dot */}
             <div className="absolute animate-pulse left-4 md:left-[-8px] top-3 w-3 h-3 bg-zinc-800 rounded-full ring-4 ring-blue-100"></div>

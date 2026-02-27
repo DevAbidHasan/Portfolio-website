@@ -2,12 +2,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-.ibm{
-  font-family: "IBM Plex Mono", monospace;
-}
-.poppins{
-   font-family: "Poppins", sans-serif;
-}
+
 @keyframes borderMove {
   0% {
     background-position: 0% 50%;

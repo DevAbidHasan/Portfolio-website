@@ -61,7 +61,7 @@ const MainLayout = () => {
   }
 
   return (
-    <div className='lg:w-[60%] md:w-[85%] w-[95%] mx-auto'>
+    <div className='lg:w-[60%] md:w-[85%] overflow-hidden w-[95%] mx-auto'>
       <Navbar />
       <Toaster/>
       <ScrollToTop/>
