@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsCheckCircle } from "react-icons/bs";
 import img1 from "../../public/PHero_Certificate_page-0001.jpg";
-import img2 from "../../public/Profile _ freeCodeCamp.org_page-0001.jpg";
+import img2 from "../../public/Freecodecamp Certification - Plabon.jpg";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
 

@@ -42,18 +42,18 @@ const Workflow = () => {
           {steps.map((step, index) => (
             <div data-aos="zoom-in" data-aos-duration="1000"
               key={index}
-              className="border border-gray-200 bg-gray-50 dark:border-gray-700 
+              className="border group border-gray-200 bg-gray-50 dark:border-gray-700 
               rounded-2xl p-8 hover:shadow-md transition-all duration-500"
             >
-              <span className="text-lg orbitron font-bold tracking-[0.2em] text-green-500">
+              <span className="text-lg  orbitron font-bold tracking-[0.2em] text-green-500">
                 {step.number}
               </span>
 
-              <h3 className="mt-4 orbitron text-xl font-semibold text-gray-900 dark:text-white">
+              <h3 className="mt-4 transition-all duration-300 group-hover:text-green-600 orbitron text-xl font-semibold text-gray-800 dark:text-white">
                 {step.title}
               </h3>
 
-              <p className="mt-4 raleway text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              <p className="mt-4 raleway transition-all duration-500 group-hover:text-green-800 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                 {step.desc}
               </p>
             </div>

@@ -101,7 +101,7 @@ const About = () => {
 
                 {/* Stat 3 */}
                 <div className="">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-gray-600 dark:text-white">
                     Full Stack
                   </h3>
                   <p className="mt-3 raleway text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
@@ -111,7 +111,7 @@ const About = () => {
 
                 {/* Stat 4 */}
                 <div className="">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-semibold text-gray-600 dark:text-white">
                     Clean Code
                   </h3>
                   <p className="mt-3 raleway text-gray-500 dark:text-gray-400 text-xs tracking-[0.2em] uppercase">
