@@ -1,18 +1,17 @@
-import React from "react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsCheckCircle } from "react-icons/bs";
-import { FiExternalLink } from "react-icons/fi";
+import { FiArrowUpRight } from "react-icons/fi";
 import img1 from "../../public/PHero_Certificate_page-0001.jpg";
 import img2 from "../../public/Freecodecamp Certification - Plabon.jpg";
 import toast from "react-hot-toast";
-import SectionHeader from "./SectionHeader";
 import Reveal from "./Reveal";
 
 const certifications = [
   {
     image: img1,
     title: "Complete Web Development",
-    subtitle: "Level 1 · Programming Hero",
+    issuer: "Programming Hero",
+    level: "Level 1",
     period: "Jan — Sept 2025",
     link: "https://web.programming-hero.com/course-details",
     downloadName: "Programming Hero Certification - Plabon",
@@ -21,7 +20,7 @@ const certifications = [
   {
     image: img2,
     title: "Responsive Web Design",
-    subtitle: "freeCodeCamp",
+    issuer: "freeCodeCamp",
     period: "July — Aug 2025",
     link: "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
     downloadName: "Freecodecamp Certification - Plabon",
@@ -31,55 +30,91 @@ const certifications = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="section-block surface-muted">
+    <section id="certifications" className="section-block surface-muted certifications-section">
       <div className="page-container">
-        <SectionHeader
-          index="06"
-          eyebrow="Credentials"
-          title="Certifications"
-          description="Structured programs that strengthened my fundamentals and best practices."
-          align="center"
-          className="is-center"
-        />
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <Reveal className="lg:col-span-4 lg:sticky lg:top-28" animation="fade-right">
+            <p className="section-eyebrow">
+              <span className="section-index">{"{06}"}</span>
+              <span className="section-eyebrow-sep"> — </span>
+              Credentials
+            </p>
+            <h2 className="section-title">Certifications</h2>
+            <p className="mt-4 text-body">
+              Structured programs that strengthened my fundamentals — from responsive layout to
+              full-stack web development.
+            </p>
+          </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-          {certifications.map((cert, i) => (
-            <Reveal key={cert.title} className="project-card" animation="fade-up" delay={i * 160}>
-              <div className="p-4" style={{ background: "var(--bg-subtle)" }}>
-                <div className="aspect-[4/3] rounded-xl overflow-hidden flex items-center justify-center surface-card">
-                  <img src={cert.image} alt={cert.title} className="max-h-full max-w-full object-contain p-3" />
-                </div>
-              </div>
-              <div className="p-6 flex flex-col flex-1">
+          <div className="cert-list lg:col-span-8">
+            {certifications.map((cert, i) => (
+              <Reveal
+                as="article"
+                key={cert.title}
+                className="cert-card"
+                animation="fade-left"
+                delay={i * 140}
+              >
                 <a
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="heading-sm flex items-center gap-2 hover:text-accent transition-colors"
-                  style={{ color: "var(--text)" }}
+                  className="cert-preview"
+                  aria-label={`View ${cert.title} course`}
                 >
-                  {cert.title}
-                  <FiExternalLink size={14} style={{ color: "var(--text-muted)" }} />
+                  <img src={cert.image} alt="" loading="lazy" />
                 </a>
-                <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>{cert.subtitle}</p>
-                <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>{cert.period}</p>
-                <div className="grid grid-cols-2 gap-3 mt-auto pt-5">
-                  <a href={cert.image} download={cert.downloadName} className="btn-primary !py-2.5 !text-xs justify-center">
-                    <AiOutlineDownload size={14} /> Download
-                  </a>
-                  {cert.verifyLink ? (
-                    <a href={cert.verifyLink} target="_blank" rel="noopener noreferrer" className="btn-secondary !py-2.5 !text-xs justify-center">
-                      <BsCheckCircle size={14} /> Verify
+
+                <div className="cert-body">
+                  <div className="cert-head">
+                    <time className="cert-period">{cert.period}</time>
+                    <span className="cert-issuer">{cert.issuer}</span>
+                  </div>
+
+                  <h3 className="cert-title">
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="cert-title-link"
+                    >
+                      {cert.title}
+                      <FiArrowUpRight size={15} aria-hidden="true" />
                     </a>
-                  ) : (
-                    <button type="button" onClick={cert.verify} className="btn-secondary !py-2.5 !text-xs justify-center">
-                      <BsCheckCircle size={14} /> Verify
-                    </button>
-                  )}
+                  </h3>
+
+                  {cert.level && <p className="cert-level">{cert.level}</p>}
+
+                  <div className="cert-actions">
+                    <a
+                      href={cert.image}
+                      download={cert.downloadName}
+                      className="cert-action cert-action--primary"
+                    >
+                      <AiOutlineDownload size={14} aria-hidden="true" />
+                      Download
+                    </a>
+                    {cert.verifyLink ? (
+                      <a
+                        href={cert.verifyLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cert-action"
+                      >
+                        <BsCheckCircle size={14} aria-hidden="true" />
+                        Verify
+                      </a>
+                    ) : (
+                      <button type="button" onClick={cert.verify} className="cert-action">
+                        <BsCheckCircle size={14} aria-hidden="true" />
+                        Verify
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

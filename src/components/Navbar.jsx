@@ -84,7 +84,7 @@ const Navbar = () => {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="nav-desktop-actions">
             <ThemeToggle />
             <a href="#contact" className="btn-pill btn-pill-primary btn-pill-nav">
               Contact
@@ -94,9 +94,9 @@ const Navbar = () => {
             </a>
           </div>
 
-          <div className="flex md:hidden items-center gap-2">
+          <div className="nav-mobile-actions">
             <ThemeToggle />
-            <button type="button" onClick={() => setOpen(true)} aria-label="Menu" className="theme-toggle">
+            <button type="button" onClick={() => setOpen(true)} aria-label="Menu" className="nav-menu-btn">
               <HiOutlineMenu size={20} />
             </button>
           </div>

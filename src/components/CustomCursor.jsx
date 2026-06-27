@@ -4,7 +4,7 @@ const DOT_LERP = 0.62;
 const RING_LERP = 0.11;
 
 const INTERACTIVE =
-  "a, button, [role='button'], input, textarea, select, label, .btn-primary, .btn-secondary, .btn-pill, .theme-toggle, .nav-link";
+  "a, button, [role='button'], input, textarea, select, label, .btn-primary, .btn-secondary, .btn-pill, .theme-toggle, .theme-switch, .nav-menu-btn, .nav-link";
 
 const CustomCursor = () => {
   const dotRef = useRef(null);
