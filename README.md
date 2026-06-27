@@ -1,6 +1,8 @@
 # Abid Hasan Plabon — Portfolio
 
 Personal portfolio of my, a full-stack developer from Dhaka, Bangladesh. Built with React and Vite, featuring scroll-reveal animations, light/dark theme, a custom cursor, and a section-based single-page layout.
+<img width="1918" height="826" alt="image" src="https://github.com/user-attachments/assets/ef2583b8-6bde-4e43-8139-c253c869980d" />
+
 
 | | |
 |---|---|
