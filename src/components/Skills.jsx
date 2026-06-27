@@ -42,7 +42,7 @@ const Skills = () => {
             </p>
             <h2 className="section-title">What I work with daily</h2>
             <p className="mt-4 text-body">
-              Core and supporting tech from my MERN stack — the tools I actually ship with.
+              Core and supporting tech from my MERN stack — the tools I use in practice, showcase, and production work.
             </p>
           </Reveal>
 

@@ -2,8 +2,8 @@ import React from "react";
 import Reveal from "./Reveal";
 
 const stats = [
-  { value: "1.5+", label: "Years", sub: "Building for production" },
-  { value: "4+", label: "Projects", sub: "Shipped end to end" },
+  { value: "1.5+", label: "Years", sub: "Learning & building" },
+  { value: "MERN", label: "Stack", sub: "My go-to toolkit" },
   { value: "12+", label: "Technologies", sub: "In my daily stack" },
 ];
 

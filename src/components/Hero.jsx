@@ -51,7 +51,7 @@ const Hero = () => {
 
             <p className="mt-6 text-body max-w-lg">
               a <span className="font-medium" style={{ color: "var(--text)" }}>Full Stack Developer</span> from{" "}
-              <span className="font-medium" style={{ color: "var(--text)" }}>Dhaka</span> building apps that hold up in production.
+              <span className="font-medium" style={{ color: "var(--text)" }}>Dhaka</span> building full-stack apps and growing toward production work.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">

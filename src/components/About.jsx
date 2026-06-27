@@ -18,7 +18,8 @@ const About = () => {
           className="!mb-0"
         />
         <Reveal as="p" className="mt-2 text-body" delay={200}>
-          I build production-ready web apps with the MERN stack — from UI to APIs and deployment.
+          I build full-stack web apps with the MERN stack — from UI to APIs and deployment.
+          Still early in my career: one production project so far, with more practice and showcase work in my portfolio.
           Currently in my final year of CSE at Jahangirnagar University, based in Dhaka and open to remote work.
         </Reveal>
       </div>

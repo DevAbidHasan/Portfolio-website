@@ -34,11 +34,6 @@ const CTA = () => {
 
             <Reveal className="cta-side" animation="fade-left" delay={200}>
               <div className="cta-profile">
-                <div className="cta-waves" aria-hidden="true">
-                  <span />
-                  <span />
-                  <span />
-                </div>
                 <img src={img} alt="Abid Hasan Plabon" className="cta-avatar" />
                 <div className="cta-profile-text">
                   <p className="cta-name">Abid Hasan Plabon</p>
@@ -63,12 +58,12 @@ const CTA = () => {
               <div className="cta-contact">
                 <p className="cta-contact-label">Contact me</p>
                 <a href="mailto:abidhasanplabon80@gmail.com" className="cta-email">
-                  abidhasanplabon80<span className="cta-email-at">@</span>gmail.com
+                  abidhasanplabon80<wbr />
+                  <span className="cta-email-at">@</span>gmail.com
                 </a>
                 <p className="cta-blurb">
-                  Looking for a skilled{" "}
-                  <strong>full stack developer</strong> who builds{" "}
-                  <strong>production-ready</strong>, scalable applications? Let&apos;s connect!
+                  Looking for a motivated{" "}
+                  <strong>full-stack developer</strong> who learns fast and ships clean work? Let&apos;s connect!
                 </p>
                 <a href={resume} download="Resume_MERN_Plabon.pdf" className="btn-pill btn-pill-primary mt-7">
                   View my resume

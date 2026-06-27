@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../public/logo-1.png";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import { FiArrowRight } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
@@ -85,8 +86,11 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <a href="mailto:abidhasanplabon80@gmail.com" className="btn-primary !py-2.5 !px-5 !min-h-0 text-xs">
-              Get in touch
+            <a href="#contact" className="btn-pill btn-pill-primary btn-pill-nav">
+              Contact
+              <span className="btn-pill-icon" aria-hidden="true">
+                <FiArrowRight size={16} />
+              </span>
             </a>
           </div>
 
@@ -133,8 +137,15 @@ const Navbar = () => {
           ))}
         </div>
         <div className="p-4">
-          <a href="mailto:abidhasanplabon80@gmail.com" className="btn-primary w-full" onClick={() => setOpen(false)}>
-            Get in touch
+          <a
+            href="#contact"
+            className="btn-pill btn-pill-primary btn-pill-nav w-full"
+            onClick={() => setOpen(false)}
+          >
+            Contact
+            <span className="btn-pill-icon" aria-hidden="true">
+              <FiArrowRight size={16} />
+            </span>
           </a>
         </div>
       </aside>

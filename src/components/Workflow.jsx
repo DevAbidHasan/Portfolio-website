@@ -35,7 +35,7 @@ const Workflow = () => {
               How I actually work
             </h2>
             <p className="mt-4 text-body">
-              No agency playbook — just what I&apos;ve picked up shipping real projects over the past year and a half.
+              No agency playbook — just what I&apos;ve picked up from practice projects, one production build, and shipping this portfolio.
             </p>
           </Reveal>
 
