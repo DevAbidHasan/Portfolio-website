@@ -1,43 +1,44 @@
 import React from "react";
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiGmail, SiCodeforces } from "react-icons/si";
 import { BsLinkedin } from "react-icons/bs";
+import Reveal from "./Reveal";
+
+const links = [
+  { href: "https://github.com/DevAbidHasan", icon: SiGithub, label: "GitHub" },
+  { href: "https://www.linkedin.com/in/abid-hasan-plabon-a4aa222a1/", icon: BsLinkedin, label: "LinkedIn" },
+  { href: "https://codeforces.com/profile/abidhasanplabon80", icon: SiCodeforces, label: "Codeforces" },
+  { href: "mailto:abidhasanplabon80@gmail.com", icon: SiGmail, label: "Email" },
+];
 
 const Footer = () => {
   return (
-    <div>
-      <hr data-aos="fade-down" className="text-gray-200 mt-15 w-[90%] mx-auto" />
-      <div data-aos="fade-up">
-        <div className="flex items-center gap-5  justify-center mt-10">
-          <div className="relative group">
-              <a href="https://github.com/DevAbidHasan" target='_blank'>
-                <SiGithub className='text-zinc-700 hover:text-zinc-900' size={22}/>
-              </a>
-              <span className="absolute -top-9 left-1/2 -translate-x-1/2
-                bg-indigo-800 text-white text-xs px-2 py-1 rounded-md
-                opacity-0 group-hover:opacity-100
-                transition-all duration-300 whitespace-nowrap">
-                GitHub
-              </span>
-            </div>
-          
-            {/* LinkedIn */}
-            <div className="relative group">
-              <a href="https://www.linkedin.com/in/abid-hasan-plabon-a4aa222a1/" target='_blank'>
-                <BsLinkedin className='text-blue-400 hover:text-blue-500' size={22}/>
-              </a>
-              <span className="absolute -top-9 left-1/2 -translate-x-1/2
-                bg-cyan-600 text-white text-xs px-2 py-1 rounded-md
-                opacity-0 group-hover:opacity-100
-                transition-all duration-300 whitespace-nowrap">
-                LinkedIn
-              </span>
-            </div>
+    <footer style={{ borderTop: "1px solid var(--border)", background: "var(--bg-elevated)" }}>
+      <Reveal className="page-container py-10 flex flex-col md:flex-row items-center justify-between gap-6" animation="fade-up">
+        <div>
+          <p className="font-display font-medium text-sm" style={{ color: "var(--text)" }}>
+            Abid Hasan Plabon
+          </p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>
+            © {new Date().getFullYear()} · Full Stack Developer
+          </p>
         </div>
-      </div>
-      <h2 className="text-gray-500 raleway text-sm my-8 text-center">
-        &copy; <span className="tracking-[0.1em]">Abid Hasan Plabon. All rights reserved.</span>
-      </h2>
-    </div>
+
+        <div className="flex items-center gap-2">
+          {links.map(({ href, icon: Icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="theme-toggle !w-9 !h-9"
+            >
+              <Icon size={17} />
+            </a>
+          ))}
+        </div>
+      </Reveal>
+    </footer>
   );
 };
 

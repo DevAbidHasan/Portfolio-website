@@ -1,64 +1,55 @@
 import React from "react";
+import Reveal from "./Reveal";
+
+const steps = [
+  {
+    title: "Talk first",
+    desc: "Before I open an editor, we align on the goal, who it's for, and what “done” looks like. I'd rather ask too many questions early than fix the wrong thing later.",
+  },
+  {
+    title: "Sketch lightly",
+    desc: "Rough layout, pick the stack, split work into small chunks. I don't write long specs — just enough to start building without guessing.",
+  },
+  {
+    title: "Build in pieces",
+    desc: "Frontend and backend together, one slice at a time. Easier to review, easier to change when requirements shift (they usually do).",
+  },
+  {
+    title: "Ship, then fix",
+    desc: "Deploy, test on real devices, catch the bugs. I stay on it until it works in production — not just on my laptop.",
+  },
+];
 
 const Workflow = () => {
-  const steps = [
-    {
-      number: "01",
-      title: "Planning",
-      desc: "Understanding requirements and defining project structure."
-    },
-    {
-      number: "02",
-      title: "Design",
-      desc: "Creating clean and user-friendly UI layouts."
-    },
-    {
-      number: "03",
-      title: "Development",
-      desc: "Building scalable frontend and backend systems."
-    },
-    {
-      number: "04",
-      title: "Testing",
-      desc: "Ensuring performance, security and responsiveness."
-    },
-    {
-      number: "05",
-      title: "Deployment",
-      desc: "Deploying optimized applications to production."
-    }
-  ];
-
   return (
-    <section className=" py-16 bg-white dark:bg-gray-900">
-      <div className="w-[90%] mx-auto">
+    <section className="section-block surface-muted">
+      <div className="page-container">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <Reveal className="lg:col-span-4 lg:sticky lg:top-28" animation="fade-right">
+            <p className="section-eyebrow">
+              <span className="section-index">{"{02}"}</span>
+              <span className="section-eyebrow-sep"> — </span>
+              Process
+            </p>
+            <h2 className="section-title">
+              How I actually work
+            </h2>
+            <p className="mt-4 text-body">
+              No agency playbook — just what I&apos;ve picked up shipping real projects over the past year and a half.
+            </p>
+          </Reveal>
 
-        <h2 data-aos="fade-down" className="text-3xl md:text-4xl lg:text-5xl orbitron font-bold text-center text-gray-700 dark:text-white mb-6">
-          My Workflow
-        </h2>
-        <p data-aos="fade-down" className="text-gray-600 raleway dark:text-gray-300 mb-16 text-center">A structured approach I follow to design and build efficient, scalable applications.</p>
-        <div  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-          {steps.map((step, index) => (
-            <div data-aos="zoom-in" data-aos-duration="1000"
-              key={index}
-              className="border group border-gray-200 bg-gray-50 dark:border-gray-700 
-              rounded-2xl p-8 hover:shadow-md transition-all duration-500"
-            >
-              <span className="text-lg  orbitron font-bold tracking-[0.2em] text-green-500">
-                {step.number}
-              </span>
-
-              <h3 className="mt-4 transition-all duration-300 group-hover:text-green-600 orbitron text-xl font-semibold text-gray-800 dark:text-white">
-                {step.title}
-              </h3>
-
-              <p className="mt-4 raleway transition-all duration-500 group-hover:text-green-800 text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                {step.desc}
-              </p>
-            </div>
-          ))}
-
+          <ol className="process-list lg:col-span-8">
+            {steps.map((step, i) => (
+              <Reveal as="li" key={step.title} className="process-item" delay={i * 130}>
+                <span className="process-num">{i + 1}</span>
+                <div>
+                  <h3 className="process-item-title heading-sm">{step.title}</h3>
+                  <p className="process-item-desc">{step.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
         </div>
       </div>
     </section>

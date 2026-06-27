@@ -2,25 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./public/logo-1.png" type="image/x-icon" />
-    <!-- google fonts : orbitron, raleway -->
+    <link rel="shortcut icon" href="/logo-1.png" type="image/x-icon" />
+    <script>
+      (function () {
+        var s = localStorage.getItem("theme");
+        var t =
+          s === "light" || s === "dark"
+            ? s
+            : window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+        document.documentElement.setAttribute("data-theme", t);
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap"
       rel="stylesheet"
     />
-    <title >Abid Hasan Plabon | portfolio</title>
-    <style>
-      .raleway{
-        font-family: "Raleway", sans-serif;
-      }
-      .orbitron{
-        font-family: "Orbitron", sans-serif;
-      }
-    </style>
+    <title>Abid Hasan Plabon — Portfolio</title>
   </head>
   <body>
     <div id="root"></div>

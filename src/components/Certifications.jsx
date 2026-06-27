@@ -1,134 +1,86 @@
 import React from "react";
 import { AiOutlineDownload } from "react-icons/ai";
 import { BsCheckCircle } from "react-icons/bs";
+import { FiExternalLink } from "react-icons/fi";
 import img1 from "../../public/PHero_Certificate_page-0001.jpg";
 import img2 from "../../public/Freecodecamp Certification - Plabon.jpg";
-import { Link } from "react-router";
 import toast from "react-hot-toast";
+import SectionHeader from "./SectionHeader";
+import Reveal from "./Reveal";
+
+const certifications = [
+  {
+    image: img1,
+    title: "Complete Web Development",
+    subtitle: "Level 1 · Programming Hero",
+    period: "Jan — Sept 2025",
+    link: "https://web.programming-hero.com/course-details",
+    downloadName: "Programming Hero Certification - Plabon",
+    verify: () => toast.error("Verification link was not provided."),
+  },
+  {
+    image: img2,
+    title: "Responsive Web Design",
+    subtitle: "freeCodeCamp",
+    period: "July — Aug 2025",
+    link: "https://www.freecodecamp.org/learn/2022/responsive-web-design/",
+    downloadName: "Freecodecamp Certification - Plabon",
+    verifyLink: "https://www.freecodecamp.org/certification/abidhasanplabon/responsive-web-design",
+  },
+];
 
 const Certifications = () => {
-
-  const showPhVerification = () => {
-    toast.error("Verification link was not provided from mentors !!!");
-  };
-
   return (
-    <section
-      id="certifications"
-      className="py-24 w-[90%] mb-10 mx-auto dark:bg-gray-900"
-    >
-      <div data-aos="fade-down" className="text-center mb-16">
-        <h2 className="text-3xl lg:text-5xl orbitron md:text-4xl font-bold text-gray-700 dark:text-white">
-           My Certifications
-        </h2>
-        <p className="mt-4 raleway text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-sm md:text-base">
-          Professional certifications and courses that strengthened my technical expertise.
-        </p>
-      </div>
+    <section id="certifications" className="section-block surface-muted">
+      <div className="page-container">
+        <SectionHeader
+          index="06"
+          eyebrow="Credentials"
+          title="Certifications"
+          description="Structured programs that strengthened my fundamentals and best practices."
+          align="center"
+          className="is-center"
+        />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-
-        {/* ================= CARD 1 ================= */}
-        <div data-aos="zoom-in" className="bg-white border-gray-200 border dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
-
-          {/* Image Frame */}
-          <div className="bg-blue-50/60 dark:bg-gray-700 p-6 flex justify-center items-center">
-            <div className="w-full max-w-[400px] h-[260px] border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-              <img
-                src={img1}
-                alt="Complete Web Development Course"
-                className="max-h-full hover:scale-110 transition-transform duration-300 max-w-full object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="p-6 flex flex-col gap-3 flex-grow">
-            <Link
-              to="https://web.programming-hero.com/course-details"
-              target="_blank"
-              className="text-lg orbitron font-semibold text-gray-900 dark:text-white hover:text-blue-500 transition"
-            >
-              Complete Web Development (Level-1)
-            </Link>
-
-            <p className="text-sm raleway text-gray-500 dark:text-gray-400">
-              Programming Hero
-            </p>
-
-            <p className="text-xs raleway text-gray-400 dark:text-gray-500">
-              Jan 2025 — Sept 2025
-            </p>
-
-            <div className="flex gap-3 mt-auto pt-4">
-              <a
-                href={img1}
-                download="Programming Hero Certification - Plabon"
-                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-blue-600 to-pink-500 text-white hover:scale-105 transition"
-              >
-                <AiOutlineDownload /> Download
-              </a>
-
-              <button
-                onClick={showPhVerification}
-                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-              >
-                <BsCheckCircle /> Verify
-              </button>
-            </div>
-          </div>
+        <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+          {certifications.map((cert, i) => (
+            <Reveal key={cert.title} className="project-card" animation="fade-up" delay={i * 160}>
+              <div className="p-4" style={{ background: "var(--bg-subtle)" }}>
+                <div className="aspect-[4/3] rounded-xl overflow-hidden flex items-center justify-center surface-card">
+                  <img src={cert.image} alt={cert.title} className="max-h-full max-w-full object-contain p-3" />
+                </div>
+              </div>
+              <div className="p-6 flex flex-col flex-1">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="heading-sm flex items-center gap-2 hover:text-accent transition-colors"
+                  style={{ color: "var(--text)" }}
+                >
+                  {cert.title}
+                  <FiExternalLink size={14} style={{ color: "var(--text-muted)" }} />
+                </a>
+                <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>{cert.subtitle}</p>
+                <p className="text-xs mt-1" style={{ color: "var(--text-muted)" }}>{cert.period}</p>
+                <div className="grid grid-cols-2 gap-3 mt-auto pt-5">
+                  <a href={cert.image} download={cert.downloadName} className="btn-primary !py-2.5 !text-xs justify-center">
+                    <AiOutlineDownload size={14} /> Download
+                  </a>
+                  {cert.verifyLink ? (
+                    <a href={cert.verifyLink} target="_blank" rel="noopener noreferrer" className="btn-secondary !py-2.5 !text-xs justify-center">
+                      <BsCheckCircle size={14} /> Verify
+                    </a>
+                  ) : (
+                    <button type="button" onClick={cert.verify} className="btn-secondary !py-2.5 !text-xs justify-center">
+                      <BsCheckCircle size={14} /> Verify
+                    </button>
+                  )}
+                </div>
+              </div>
+            </Reveal>
+          ))}
         </div>
-
-        {/* ================= CARD 2 ================= */}
-        <div data-aos="zoom-in" className="bg-white dark:bg-gray-800 border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 flex flex-col overflow-hidden">
-
-          <div className="bg-blue-50/60 dark:bg-gray-700 p-6 flex justify-center items-center">
-            <div className="w-full max-w-[400px] h-[260px] border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-              <img
-                src={img2}
-                alt="Responsive Web Design"
-                className="max-h-full hover:scale-110 transition-transform duration-300 max-w-full object-contain"
-              />
-            </div>
-          </div>
-
-          <div className="p-6 flex flex-col gap-3 flex-grow">
-            <Link
-              to="https://www.freecodecamp.org/learn/2022/responsive-web-design/"
-              target="_blank"
-              className="text-lg orbitron font-semibold text-gray-900 dark:text-white hover:text-blue-500 transition"
-            >
-              Responsive Web Design
-            </Link>
-
-            <p className="text-sm raleway text-gray-500 dark:text-gray-400">
-              freeCodeCamp
-            </p>
-
-            <p className="text-xs raleway text-gray-400 dark:text-gray-500">
-              July 2025 — Aug 2025
-            </p>
-
-            <div className="flex gap-3 mt-auto pt-4">
-              <a
-                href={img2}
-                download="Freecodecamp Certification - Plabon"
-                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg bg-gradient-to-r from-blue-600 to-pink-500 text-white hover:scale-105 transition"
-              >
-                <AiOutlineDownload /> Download
-              </a>
-
-              <Link
-                to="https://www.freecodecamp.org/certification/abidhasanplabon/responsive-web-design"
-                target="_blank"
-                className="flex-1 raleway inline-flex items-center justify-center gap-2 px-3 py-2 text-xs font-medium rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition"
-              >
-                <BsCheckCircle /> Verify
-              </Link>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );

@@ -6,22 +6,22 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Certifications from "../components/Certifications";
 import Workflow from "../components/Workflow";
+import Stats from "../components/Stats";
 import CTA from "../components/CTA";
-
 
 const HomeLayout = () => {
   return (
-    <div className="">
-      
-      <Hero></Hero>
-      <About></About>
-      <Workflow></Workflow>
-      <Skills></Skills>
-      <Projects></Projects>
-      <Education></Education>
-      <Certifications></Certifications>
-      <CTA></CTA>
-    </div>
+    <>
+      <Hero />
+      <About />
+      <Workflow />
+      <Stats />
+      <Skills />
+      <Projects />
+      <Education />
+      <Certifications />
+      <CTA />
+    </>
   );
 };
 

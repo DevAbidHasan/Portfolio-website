@@ -5,25 +5,14 @@ const ErrorPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200 text-center p-6">
-      <h1 className="text-[8rem] md:text-[10rem] font-bold font-[Poppins] text-gray-800 leading-none">
-        404
-      </h1>
-
-      <h2 className="text-2xl md:text-3xl font-[Poppins] font-semibold text-gray-700 mt-2">
-        Oops! Page Not Found
-      </h2>
-
-      <p className="text-gray-600 mt-4 max-w-md font-[IBM Plex Mono]">
-        The page you’re looking for doesn’t exist or has been moved.
-        Don’t worry — you can go back to the homepage safely.
+    <div className="min-h-screen flex flex-col items-center justify-center text-center p-6" style={{ background: "var(--bg)" }}>
+      <p className="font-display text-8xl font-bold opacity-10" style={{ color: "var(--text)" }}>404</p>
+      <h1 className="font-display text-2xl font-semibold mt-2" style={{ color: "var(--text)" }}>Page not found</h1>
+      <p className="mt-3 max-w-sm" style={{ color: "var(--text-muted)" }}>
+        The page you requested doesn&apos;t exist or has been moved.
       </p>
-
-      <button
-        onClick={() => navigate("/")}
-        className="mt-8 px-8 py-3 rounded-2xl bg-gray-900 text-white font-[Poppins] font-medium text-lg hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl"
-      >
-        ⬅ Back to Home
+      <button type="button" onClick={() => navigate("/")} className="btn-primary mt-8">
+        Return home
       </button>
     </div>
   );

@@ -3,69 +3,71 @@ import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
+import CustomCursor from '../components/CustomCursor';
+import Loader from '../components/Loader';
 import { Toaster } from 'react-hot-toast';
+import { useTheme } from '../context/ThemeContext';
+import { initScrollReveal } from '../utils/scrollReveal';
+
+const EXIT_MS = 750;
 
 const MainLayout = () => {
-
-  const [loading, setLoading] = useState(true);
-  const [progress, setProgress] = useState(0);
+  const [phase, setPhase] = useState('loading');
+  const { theme } = useTheme();
 
   useEffect(() => {
-    let value = 0;
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 1300));
+    const pageReady = new Promise((resolve) => {
+      if (document.readyState === 'complete') resolve();
+      else window.addEventListener('load', resolve, { once: true });
+    });
 
-    const interval = setInterval(() => {
-      value += 5; // controls speed
-      setProgress(value);
+    let exitTimer;
 
-      if (value >= 100) {
-        clearInterval(interval);
-        setTimeout(() => setLoading(false), 200);
-      }
-    }, 60); // 60ms × 50 ≈ 3 seconds
+    Promise.all([minDelay, pageReady]).then(() => {
+      setPhase('exiting');
+      exitTimer = setTimeout(() => setPhase('done'), EXIT_MS);
+    });
 
-    return () => clearInterval(interval);
+    return () => clearTimeout(exitTimer);
   }, []);
 
-  if (loading) {
-    return (
-      <div className="fixed inset-0 flex flex-col items-center justify-center
-      bg-gradient-to-br from-slate-900 via-black to-slate-950
-      text-white">
+  useEffect(() => {
+    if (phase !== 'done') return;
 
-        {/* Greeting Text */}
-        <h1 data-aos="fade-down" className="text-3xl md:text-4xl lg:text-5xl orbitron font-semibold tracking-wide
-        mb-6 text-center animate-fadeIn">
-          Welcome to My Portfolio
-        </h1>
+    initScrollReveal();
 
-        {/* Progress Bar Container */}
-        <div className="w-[250px] md:w-[320px] h-2 bg-white/20 
-        rounded-full overflow-hidden">
+    const refreshTimer = requestAnimationFrame(() => {
+      requestAnimationFrame(() => initScrollReveal());
+    });
 
-          {/* Animated Progress */}
-          <div
-            className="h-full bg-blue-700
-            transition-all duration-100"
-            style={{ width: `${progress}%` }}
-          ></div>
+    return () => cancelAnimationFrame(refreshTimer);
+  }, [phase]);
 
-        </div>
-
-        {/* Percentage Text */}
-        <p data-aos="fade-up" className="mt-3 raleway text-sm text-zinc-400">
-          Launching... {progress}%
-        </p>
-
-      </div>
-    );
+  if (phase !== 'done') {
+    return <Loader exiting={phase === 'exiting'} />;
   }
 
   return (
-    <div className='lg:w-[60%] md:w-[85%] overflow-hidden w-[95%] mx-auto'>
+    <div className="min-h-screen overflow-x-clip" style={{ background: "var(--bg)" }}>
+      <CustomCursor />
       <Navbar />
-      <Toaster/>
-      <ScrollToTop/>
-      <Outlet />
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: theme === "dark" ? "#18181b" : "#fff",
+            color: theme === "dark" ? "#fafafa" : "#0f0f12",
+            border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.08)"}`,
+            borderRadius: "12px",
+            fontSize: "14px",
+          },
+        }}
+      />
+      <ScrollToTop />
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

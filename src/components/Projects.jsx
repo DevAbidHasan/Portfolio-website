@@ -1,207 +1,175 @@
-import React from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { FaArrowRight } from "react-icons/fa6";
-import { FiExternalLink, FiGithub } from "react-icons/fi";
-import { Link } from "react-router";
+import { useMemo, useState } from "react";
+import { FiArrowUpRight, FiGithub } from "react-icons/fi";
+import Reveal from "./Reveal";
 
 const projects = [
   {
-    id: 1,
-    title: "My Portfolio Website Project",
+    title: "Portfolio Website",
+    description: "Personal site — work, skills, certs, contact.",
     image: "https://i.postimg.cc/8zyWJm4T/image.png",
-    description:
-      "It is my developer portfolio site showcasing me, my workflow, my skills, my projects, certifications and relevant things all together.",
     live: "https://plabon.netlify.app/",
     clientRepo: "https://github.com/DevAbidHasan/Portfolio-website",
-    stack: [
-      "Tailwind",
-      "DaisyUI",
-      "PrebuildUI",
-      "React",
-      "React-hot-toast",
-      "React-Icons",
-    ],
-    type: "Frontend",
+    stack: ["React", "Tailwind", "Vite"],
+    category: "Frontend",
   },
   {
-    id: 2,
-    title: "Dailypress Article Portal",
+    title: "Dailypress Portal",
+    description: "Article platform with auth, submissions, and admin panel.",
     image: "https://i.postimg.cc/Gm3Lvm23/Good-Morning-(Facebook-Post).png",
-    description:
-      "DailyPress is a modern article management application where users can register, submit articles, and admins can manage users and content.",
     live: "https://dailypress-bf298.web.app/",
     clientRepo: "https://github.com/DevAbidHasan/B11-A12-Dailypress-client",
     serverRepo: "https://github.com/DevAbidHasan/B11-A12-Dailypress-server",
-    stack: [
-      "Tailwind",
-      "DaisyUI",
-      "React",
-      "Node.js",
-      "Express.js",
-      "Rest API",
-      "MongoDB",
-      "Firebase",
-    ],
-    type: "Full Stack",
+    stack: ["React", "Node.js", "MongoDB"],
+    category: "Full Stack",
   },
   {
-    id: 3,
-    title: "Booknest Library Management",
+    title: "Booknest",
+    description: "Library management with borrowing history for users.",
     image: "https://i.ibb.co.com/vCD0RpN1/image.png",
-    description:
-      "BookNest is a library management MERN website which allows registered users to track their library usage history.",
     live: "https://book-nest-75887.web.app/",
     clientRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-client",
     serverRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-server",
-    stack: [
-      "Tailwind",
-      "DaisyUI",
-      "React",
-      "Node.js",
-      "Express.js",
-      "Rest API",
-      "MongoDB",
-      "Firebase",
-    ],
-    type: "Full Stack",
+    stack: ["React", "Express", "MongoDB"],
+    category: "Full Stack",
   },
   {
-    id: 4,
-    title: "Plantpal Plant Care Tracking",
+    title: "Plantpal",
+    description: "Plant care tracker with schedules and health notes.",
     image: "https://i.postimg.cc/KjC1m0DX/image.png",
-    description:
-      "Plantpal is a full-stack MERN website allows registered users to add plants, update them, view and track plant care",
     live: "https://plantpal-plant-care-tracking.web.app/",
     clientRepo: "https://github.com/DevAbidHasan/B11-A10-Plantpal-client",
     serverRepo: "https://github.com/DevAbidHasan/B11-A10-Plantpal-server",
-    stack: [
-      "Tailwind",
-      "DaisyUI",
-      "React",
-      "Node.js",
-      "Express.js",
-      "Rest API",
-      "MongoDB",
-      "Firebase",
-    ],
-    type: "Full Stack",
+    stack: ["React", "Node.js", "Firebase"],
+    category: "Full Stack",
   },
 ];
 
+const categories = ["All", "Frontend", "Full Stack"];
+
 const Projects = () => {
-  
+  const [active, setActive] = useState("All");
+
+  const filtered = useMemo(
+    () => (active === "All" ? projects : projects.filter((p) => p.category === active)),
+    [active],
+  );
 
   return (
-    <section id="projects" className="py-16 w-[90%] mx-auto dark:bg-gray-900">
-      {/* Section Header */}
-      <div data-aos="fade-down" className="text-center mb-20">
-        <h2 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">
-          Featured Projects
-        </h2>
-        <p className="mt-4 raleway text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-          A selection of projects showcasing my expertise in full-stack
-          development, UI engineering, and scalable backend architecture.
-        </p>
-      </div>
-      <Toaster />
+    <section id="projects" className="section-block surface-muted projects-section">
+      <div className="page-container">
+        <div className="projects-layout">
+          <Reveal className="projects-intro lg:sticky lg:top-28" animation="fade-right">
+            <p className="section-eyebrow">
+              <span className="section-index">{"{04}"}</span>
+              <span className="section-eyebrow-sep"> — </span>
+              Projects
+            </p>
+            <h2 className="section-title">Work I&apos;ve shipped recently</h2>
+            <p className="mt-4 text-body">
+              Real apps with auth, APIs, admin panels, and production deployments.
+            </p>
+            <a
+              href="https://github.com/DevAbidHasan?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 mt-8 text-xs font-medium transition-colors hover:text-accent"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              View all on GitHub <FiArrowUpRight size={14} />
+            </a>
+          </Reveal>
 
-      {/* Project Grid */}
-      <div  className="grid md:grid-cols-2 gap-10">
-        {projects.map((project) => (
-          <div data-aos="flip-right"
-            key={project.id}
-            className="group relative bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-gray-200 dark:border-gray-700 rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500"
-          >
-            {/* Image Section */}
-            <div className="relative h-56 overflow-hidden">
-              <img
-                src={`${project.image}?auto=format&fit=crop&w=800&q=80`}
-                alt={project.title}
-                className="w-full p-3 border rounded-3xl border-gray-300 bg-blue-50 h-full orbitron object-cover transition duration-500 ease-out group-hover:scale-105 "
-              />
-
-              {/* Dark Overlay */}
-
-              {/* Project Type Badge */}
-              <div className="absolute top-4 right-4 z-10">
-                <span
-                  className="px-4 py-1 text-xs font-semibold tracking-wide rounded-full 
-                bg-gradient-to-r from-indigo-500 to-purple-600 
-                text-white orbitron shadow-lg backdrop-blur-md"
-                >
-                  {project.type}
-                </span>
-              </div>
-
-              {/* View Details Button */}
-            </div>
-
-            {/* Content */}
-            <div className="p-6 flex flex-col gap-4">
-              <h3 className="text-xl orbitron font-semibold text-gray-700 dark:text-white">
-                {project.title}
-              </h3>
-
-              <p className="text-sm text-justify text-gray-600 raleway dark:text-gray-400 leading-relaxed">
-                {project.description}
-              </p>
-
-              {/* Stack Chips */}
-              <div className="flex raleway flex-wrap gap-2 pt-2">
-                {project.stack.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-3 text-blue-500 py-1 text-xs rounded-full bg-blue-100/50 dark:bg-gray-700  dark:text-gray-300 border border-blue-200 dark:border-gray-600"
+          <div className="projects-main">
+            <div className="projects-filter-bar lg:sticky lg:top-28">
+              <div className="project-filter" role="tablist" aria-label="Project categories">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    type="button"
+                    role="tab"
+                    aria-selected={active === cat}
+                    onClick={() => setActive(cat)}
+                    className={`project-filter-btn${active === cat ? " is-active" : ""}`}
                   >
-                    {tech}
-                  </span>
+                    {cat}
+                  </button>
                 ))}
               </div>
-
-              {/* Links */}
-              <div className="flex raleway items-center justify-center gap-10 pt-4 mt-auto">
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-500 transition"
-                >
-                  <FiExternalLink /> Live
-                </a>
-
-                <a
-                  href={project.clientRepo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition"
-                >
-                  <FiGithub /> Client
-                </a>
-
-                <a
-                  href={project.serverRepo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition"
-                >
-                  <FiGithub /> Server
-                </a>
-              </div>
             </div>
 
-            {/* Subtle Futuristic Border Glow */}
-            <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-indigo-500/40 transition duration-500 pointer-events-none"></div>
+            <div className="project-list" role="tabpanel">
+              {filtered.map((p, i) => (
+                <Reveal
+                  as="article"
+                  key={p.title}
+                  className="project-row group"
+                  delay={i * 100}
+                >
+                  <span className="project-row-index" aria-hidden="true">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="project-row-body">
+                    <div className="project-row-head">
+                      <h3 className="project-row-title">{p.title}</h3>
+                      <span className="project-type-badge">{p.category}</span>
+                    </div>
+                    <p className="project-row-desc">{p.description}</p>
+                    <div className="project-row-stack">
+                      {p.stack.map((t) => (
+                        <span key={t} className="project-stack-tag">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="project-row-links">
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-row-link project-row-link--live"
+                      >
+                        Live <FiArrowUpRight size={14} />
+                      </a>
+                      <a
+                        href={p.clientRepo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-row-link"
+                      >
+                        <FiGithub size={14} /> Code
+                      </a>
+                      {p.serverRepo && (
+                        <a
+                          href={p.serverRepo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-row-link"
+                        >
+                          <FiGithub size={14} /> API
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-row-thumb"
+                    aria-label={`Preview ${p.title}`}
+                  >
+                    <img
+                      src={`${p.image}?auto=format&fit=crop&w=480&q=80`}
+                      alt=""
+                      loading="lazy"
+                    />
+                  </a>
+                </Reveal>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
-      <div data-aos="fade-down" className="flex items-center justify-center">
-        <Link to="https://github.com/DevAbidHasan?tab=repositories" className="btn raleway hover:scale-x-105 transition-transform duration-300 btn-lg text-sm btn-primary rounded-full mt-25 -mb-10">
-          
-            
-              See All Projects <FaArrowRight size={18} />
-          
-         
-        </Link>
+        </div>
       </div>
     </section>
   );

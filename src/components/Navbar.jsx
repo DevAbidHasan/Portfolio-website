@@ -1,177 +1,144 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import logo from "../../public/logo-1.png";
-import { SiGithub, SiCodeforces, SiGmail } from "react-icons/si";
-import { FaFacebook } from "react-icons/fa6";
-import { BsLinkedin } from "react-icons/bs";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
+import ThemeToggle from "./ThemeToggle";
+
+const NAV = [
+  { name: "Home", href: "#hero" },
+  { name: "About", href: "#about" },
+  { name: "Work", href: "#projects" },
+  { name: "Certifications", href: "#certifications" },
+];
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const [active, setActive] = useState("Home");
+  const [scrolled, setScrolled] = useState(false);
 
-  const menuItem = (name, link) => (
-    <a
-      href={link}
-      onClick={() => {
-        setActive(name);
-        setIsOpen(false);
-      }}
-      className={`text-sm transition-all duration-200 ${
-        active === name
-          ? "text-blue-700 font-semibold"
-          : "text-zinc-800 hover:text-blue-400"
-      }`}
-    >
-      {name}
-    </a>
-  );
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 16);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  useEffect(() => {
+    const ids = ["hero", "about", "projects", "certifications"];
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const map = {
+              hero: "Home",
+              about: "About",
+              projects: "Work",
+              certifications: "Certifications",
+            };
+            if (map[e.target.id]) setActive(map[e.target.id]);
+          }
+        });
+      },
+      { rootMargin: "-42% 0px -48% 0px" }
+    );
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) obs.observe(el);
+    });
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
-    <div className='fixed orbitron top-5 left-0 w-full z-50 flex justify-center'>
-      {/* Desktop Navbar */}
-      <div data-aos="fade-down" data-aos-duration="1500" className='lg:w-[60%] md:w-[80%] w-[95%] 
-        px-6 py-3 lg:py-2 rounded-full 
-        bg-white/20 backdrop-blur-md border border-zinc-300 
-        shadow-sm flex items-center justify-between'>
-
-        {/* Desktop Menu */}
-        <div className='hidden md:flex text-sm text-zinc-900 items-center md:gap-5 lg:gap-6'>
-          {menuItem("Home", "#")}
-          {menuItem("Skills", "#skills")}
-          {menuItem("Projects", "#projects")}
-          {menuItem("Certifications", "#certifications")}
-        </div>
-
-        {/* Logo */}
-        <div>
-          <a href='#'>
-            <img src={logo} className='w-[35px]' alt="Logo" />
+    <>
+      <header
+        className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+        style={{
+          background: scrolled ? "var(--nav-bg)" : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: scrolled ? "1px solid var(--border)" : "1px solid transparent",
+          boxShadow: scrolled ? "var(--shadow-sm)" : "none",
+        }}
+      >
+        <div className="page-container flex items-center justify-between h-16 md:h-[4.5rem]">
+          <a href="#hero" className="flex items-center gap-3 shrink-0 group">
+            <img src={logo} alt="" className="w-8 h-8 rounded-lg transition-transform group-hover:scale-105" />
+            <span className="font-display text-sm font-medium hidden sm:block" style={{ color: "var(--text)" }}>
+              Abid Hasan
+            </span>
           </a>
-        </div>
 
-        {/* Social Icons */}
-        <div className='hidden md:flex items-center md:gap-4 lg:gap-6'>
-          {/* GitHub */}
-          <div className="relative group">
-            <a href="https://github.com/DevAbidHasan" target='_blank'>
-              <SiGithub className='text-zinc-700 hover:text-zinc-900' size={22}/>
+          <nav className="hidden md:flex items-center gap-0.5">
+            {NAV.map((l) => (
+              <a
+                key={l.name}
+                href={l.href}
+                onClick={() => setActive(l.name)}
+                className={`nav-link ${active === l.name ? "active" : ""}`}
+              >
+                {l.name}
+              </a>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
+            <a href="mailto:abidhasanplabon80@gmail.com" className="btn-primary !py-2.5 !px-5 !min-h-0 text-xs">
+              Get in touch
             </a>
-            <span className="absolute -top-9 left-1/2 -translate-x-1/2
-              bg-indigo-800 text-white text-xs px-2 py-1 rounded-md
-              opacity-0 group-hover:opacity-100
-              transition-all duration-300 whitespace-nowrap">
-              GitHub
-            </span>
           </div>
 
-          {/* LinkedIn */}
-          <div className="relative group">
-            <a href="https://www.linkedin.com/in/abid-hasan-plabon-a4aa222a1/" target='_blank'>
-              <BsLinkedin className='text-blue-400 hover:text-blue-500' size={22}/>
-            </a>
-            <span className="absolute -top-9 left-1/2 -translate-x-1/2
-              bg-cyan-600 text-white text-xs px-2 py-1 rounded-md
-              opacity-0 group-hover:opacity-100
-              transition-all duration-300 whitespace-nowrap">
-              LinkedIn
-            </span>
-          </div>
-
-          {/* Facebook */}
-          <div className="relative group">
-            <a href="https://www.facebook.com/plabon48" target='_blank'>
-              <FaFacebook className='text-blue-600 hover:text-blue-700' size={22}/>
-            </a>
-            <span className="absolute -top-9 left-1/2 -translate-x-1/2
-              bg-blue-600 text-white text-xs px-2 py-1 rounded-md
-              opacity-0 group-hover:opacity-100
-              transition-all duration-300 whitespace-nowrap">
-              Facebook
-            </span>
-          </div>
-
-          {/* Codeforces */}
-          <div className="relative group">
-            <a href="https://codeforces.com/profile/abidhasanplabon80" target='_blank'>
-              <SiCodeforces className='text-orange-400 hover:text-orange-500' size={22}/>
-            </a>
-            <span className="absolute -top-9 left-1/2 -translate-x-1/2
-              bg-orange-400 text-white text-xs px-2 py-1 rounded-md
-              opacity-0 group-hover:opacity-100
-              transition-all duration-300 whitespace-nowrap">
-              Codeforces
-            </span>
-          </div>
-
-          {/* Gmail */}
-          <div className="relative group">
-            <a target='_blank' href='mailto:abidhasanplabon80@gmail.com'>
-              <SiGmail size={22} className='text-red-500 hover:text-red-600'/>
-            </a>
-            <span className="absolute -top-9 left-1/2 -translate-x-1/2
-              bg-green-500 text-white text-xs px-2 py-1 rounded-md
-              opacity-0 group-hover:opacity-100
-              transition-all duration-300 whitespace-nowrap">
-              Gmail
-            </span>
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button type="button" onClick={() => setOpen(true)} aria-label="Menu" className="theme-toggle">
+              <HiOutlineMenu size={20} />
+            </button>
           </div>
         </div>
+      </header>
 
-        {/* Mobile Hamburger */}
-        <div className='md:hidden'>
-          <button onClick={() => setIsOpen(true)}>
-            <HiOutlineMenu className='hover:text-blue-500 hover:cursor-pointer' size={26}/>
-          </button>
-        </div>
-      </div>
-
-      {/* Overlay */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden"
-          onClick={() => setIsOpen(false)}
+      {open && (
+        <div
+          className="fixed inset-0 z-50 md:hidden"
+          style={{ background: "rgba(0,0,0,0.4)" }}
+          onClick={() => setOpen(false)}
         />
       )}
 
-      {/* Side Drawer */}
-      <div className={`fixed top-0 right-0 h-full w-[75%] 
-        bg-white/80 shadow-lg transform transition-transform duration-300 
-        md:hidden z-50
-        ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-
-        {/* Close Button */}
-        <div className="flex justify-end p-5">
-          <HiOutlineX className='hover:text-red-600 hover:cursor-pointer' size={28} onClick={() => setIsOpen(false)} />
+      <aside
+        className={`fixed top-0 right-0 h-full w-80 z-[60] md:hidden transition-transform duration-300 surface-card !rounded-none !border-l`}
+        style={{
+          transform: open ? "translateX(0)" : "translateX(100%)",
+          background: "var(--bg-elevated)",
+        }}
+      >
+        <div className="flex items-center justify-between p-5" style={{ borderBottom: "1px solid var(--border)" }}>
+          <span className="font-display font-semibold" style={{ color: "var(--text)" }}>Navigation</span>
+          <button type="button" onClick={() => setOpen(false)} style={{ color: "var(--text-muted)" }}>
+            <HiOutlineX size={22} />
+          </button>
         </div>
-
-        {/* Mobile Menu Items */}
-        <div className="flex flex-col items-start gap-6 px-8 mt-10">
-          {menuItem("Home", "#")}
-          {menuItem("Skills", "#skills")}
-          {menuItem("Projects", "#projects")}
-          {menuItem("Certifications", "#certifications")}
+        <div className="p-4 flex flex-col gap-1">
+          {NAV.map((l) => (
+            <a
+              key={l.name}
+              href={l.href}
+              onClick={() => { setActive(l.name); setOpen(false); }}
+              className={`nav-link !py-3 ${active === l.name ? "active" : ""}`}
+            >
+              {l.name}
+            </a>
+          ))}
         </div>
-
-        {/* Mobile Social Icons */}
-        <div className="flex gap-6 px-8 mt-12">
-          <a href="https://github.com/DevAbidHasan" target='_blank'>
-            <SiGithub size={22} className="text-zinc-700 hover:text-zinc-900"/>
-          </a>
-          <a href="https://www.linkedin.com/in/abid-hasan-plabon-a4aa222a1/" target='_blank'>
-            <BsLinkedin size={22} className="text-blue-400 hover:text-blue-500"/>
-          </a>
-          <a href="https://www.facebook.com/plabon48" target='_blank'>
-            <FaFacebook size={22} className="text-blue-600 hover:text-blue-700"/>
-          </a>
-          <a href="https://codeforces.com/profile/abidhasanplabon80" target='_blank'>
-            <SiCodeforces size={22} className="text-orange-400 hover:text-orange-500"/>
-          </a>
-          <a href='mailto:abidhasanplabon80@gmail.com'>
-            <SiGmail size={22} className='text-red-500 hover:text-red-600'/>
+        <div className="p-4">
+          <a href="mailto:abidhasanplabon80@gmail.com" className="btn-primary w-full" onClick={() => setOpen(false)}>
+            Get in touch
           </a>
         </div>
-      </div>
-    </div>
+      </aside>
+    </>
   );
 };
 

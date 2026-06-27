@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: light dark;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow-x: clip;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Light theme ── */
+:root,
+[data-theme="light"] {
+  --font-headline: "Inter", system-ui, -apple-system, sans-serif;
+  --bg: #f6f6f8;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #ececef;
+  --text: #0f0f12;
+  --text-secondary: #4b4b57;
+  --text-muted: #71717a;
+  --border: rgba(15, 15, 18, 0.08);
+  --border-strong: rgba(15, 15, 18, 0.14);
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --accent-soft: rgba(79, 70, 229, 0.1);
+  --accent-glow: rgba(79, 70, 229, 0.18);
+  --btn-primary-bg: #4f46e5;
+  --btn-primary-hover: #4338ca;
+  --btn-primary-fg: #ffffff;
+  --btn-primary-border: #4338ca;
+  --btn-pill-shine: rgba(255, 255, 255, 0.22);
+  --btn-icon-bg: #ffffff;
+  --btn-icon-fg: #0f0f12;
+  --success: #059669;
+  --success-soft: rgba(5, 150, 105, 0.1);
+  --shadow-sm: 0 1px 2px rgba(15, 15, 18, 0.04);
+  --shadow-md: 0 8px 30px rgba(15, 15, 18, 0.07);
+  --shadow-lg: 0 20px 50px rgba(15, 15, 18, 0.1);
+  --nav-bg: rgba(246, 246, 248, 0.82);
+  --hero-gradient: radial-gradient(ellipse 75% 55% at 50% -15%, rgba(79, 70, 229, 0.14), transparent 60%);
+  --hero-border-a: #4f46e5;
+  --hero-border-b: #2563eb;
+  --hero-border-c: #0d9488;
+  --hero-border-d: #6366f1;
+  --hero-border-glow: rgba(79, 70, 229, 0.24);
+}
+
+/* ── Dark theme ── */
+[data-theme="dark"] {
+  --font-headline: "Inter", system-ui, -apple-system, sans-serif;
+  --bg: #09090b;
+  --bg-elevated: #111113;
+  --bg-subtle: #1a1a1f;
+  --text: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --accent: #818cf8;
+  --accent-hover: #a5b4fc;
+  --accent-soft: rgba(129, 140, 248, 0.12);
+  --accent-glow: rgba(129, 140, 248, 0.28);
+  --btn-primary-bg: #4f46e5;
+  --btn-primary-hover: #6366f1;
+  --btn-primary-fg: #ffffff;
+  --btn-primary-border: #6366f1;
+  --btn-pill-shine: rgba(255, 255, 255, 0.12);
+  --btn-icon-bg: #f4f4f5;
+  --btn-icon-fg: #09090b;
+  --success: #34d399;
+  --success-soft: rgba(52, 211, 153, 0.12);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.55);
+  --nav-bg: rgba(9, 9, 11, 0.82);
+  --hero-gradient: radial-gradient(ellipse 75% 55% at 50% -15%, rgba(129, 140, 248, 0.15), transparent 60%);
+  --hero-border-a: #818cf8;
+  --hero-border-b: #60a5fa;
+  --hero-border-c: #2dd4bf;
+  --hero-border-d: #a5b4fc;
+  --hero-border-glow: rgba(129, 140, 248, 0.32);
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.font-display {
+  font-family: var(--font-headline);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}

@@ -1,202 +1,83 @@
-import React, { useEffect, useState, useRef } from "react";
-
+import React from "react";
 import img from "../../public/PXL_20240130_070044507.jpg";
-import { MdFileDownload } from "react-icons/md";
-import { FaPhoneVolume } from "react-icons/fa6";
-import { IoPhoneLandscape } from "react-icons/io5";
-import { MdOutlinePhoneMissed } from "react-icons/md";
-import { FiHeadphones } from "react-icons/fi";
-import { MdReportGmailerrorred } from "react-icons/md";
-import { GiNetworkBars } from "react-icons/gi";
-import { RiHome2Line } from "react-icons/ri";
-import { IoCameraOutline } from "react-icons/io5";
-import { TiLockClosed } from "react-icons/ti";
+import resume from "../../public/Resume_MERN_Plabon.pdf";
+import { FiArrowRight } from "react-icons/fi";
+import Marquee from "./Marquee";
+import HeroProfileCard from "./HeroProfileCard";
+import Reveal from "./Reveal";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiTypescript,
+  SiMongodb,
+  SiNextdotjs,
+  SiPostgresql,
+  SiTailwindcss,
+  SiExpress,
+} from "react-icons/si";
 
+const STACK = [
+  { label: "React", icon: SiReact, color: "#61DAFB" },
+  { label: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { label: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { label: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { label: "Next.js", icon: SiNextdotjs, color: "var(--text)" },
+  { label: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+  { label: "Tailwind CSS", icon: SiTailwindcss, color: "#38B2AC" },
+  { label: "Express", icon: SiExpress, color: "var(--text-secondary)" },
+];
 
 const Hero = () => {
-  const [time, setTime] = useState(new Date());
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-  const tiltRef = useRef({ x: 0, y: 0 });
-  const animationRef = useRef(null);
-
-  // Update time
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const formattedTime = time.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  const formattedDate = time.toLocaleDateString([], {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-  });
-
-  const threshold = 15; // rotation strength
-  const speed = 0.1; // smoothing factor
-
-  const handleMove = (e) => {
-    const { left, top, width, height } =
-      e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - left) / width - 0.5;
-    const y = (e.clientY - top) / height - 0.5;
-
-    tiltRef.current = { x: y * -threshold, y: x * threshold };
-
-    if (!animationRef.current) animateTilt();
-  };
-
-  const animateTilt = () => {
-    setTilt((prev) => {
-      const dx = tiltRef.current.x - prev.x;
-      const dy = tiltRef.current.y - prev.y;
-
-      if (Math.abs(dx) < 0.01 && Math.abs(dy) < 0.01) {
-        animationRef.current = null;
-        return tiltRef.current;
-      }
-
-      animationRef.current = requestAnimationFrame(animateTilt);
-
-      return {
-        x: prev.x + dx * speed,
-        y: prev.y + dy * speed,
-      };
-    });
-  };
-
-  const handleLeave = () => {
-    tiltRef.current = { x: 0, y: 0 };
-    if (!animationRef.current) animateTilt();
-  };
-
   return (
-    <section className="min-h-screen  w-full mx-auto flex items-center justify-center pt-32 pb-20">
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-16 w-[90%] mx-auto">
-        {/* LEFT SIDE - PHONE MOCKUP */}
-        <div data-aos="fade-right" className="flex justify-center w-full lg:w-1/2">
-          <div
-            className="relative w-[260px] h-[480px] rounded-[40px] bg-zinc-950 p-2 shadow-2xl perspective-[1200px]"
-            onMouseMove={handleMove}
-            onMouseLeave={handleLeave}
-            style={{
-              transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(1.00)`,
-              transformStyle: "preserve-3d",
-              transition: "transform 0.05s linear",
-            }}
-          >
-            {/* Screen */}
-            <div className="w-full h-full border-4 border-zinc-950 bg-gradient-to-br from-purple-300 via-indigo-50 to-orange-200 rounded-[30px] overflow-hidden flex flex-col items-center justify-center text-center p-6 relative shadow-lg">
-              {/* Top Status Area */}
-              <div className="absolute top-5 left-6 right-6 flex justify-between text-xs items-center font-medium text-zinc-800">
-                <span>
-                  <MdReportGmailerrorred size={12} className="text-red-500" />
-                </span>
-                <span>
-                  <MdOutlinePhoneMissed size={12} />
-                </span>
-                <span>
-                  <IoPhoneLandscape className="text-green-400 " size={12} />
-                </span>
-                <span>
-                  <GiNetworkBars size={12} />
-                </span>
-                <span>
-                  <FiHeadphones size={12} />
-                </span>
-                <span>{formattedTime}</span>
-                <span className="raleway">Dhaka</span>
-              </div>
-
-              {/* Profile Image */}
-              <img
-                src={img}
-                alt="profile"
-                className="w-35 h-35 border border-green-700 rounded-full object-cover mb-4 shadow-lg"
-              />
-
-              {/* Name */}
-              <h3 className="text-md orbitron font-semibold text-zinc-900">
-                Abid Hasan Plabon
-              </h3>
-
-              {/* Role */}
-              <p className="text-sm raleway text-zinc-700 mt-1">
-                MERN Stack Software Developer
-              </p>
-
-              {/* Date */}
-              <div className="mt-2 text-xs raleway text-zinc-600">
-                {formattedDate}
-              </div>
-
-              {/* Available for Work Badge */}
-              <div className="mt-4 flex raleway items-center gap-2">
-                <span className="w-3 h-3 bg-green-500 rounded-full animate-ping inline-block"></span>
-                <span className="text-xs font-medium text-green-600">
-                  Available for Remote Jobs
-                </span>
-              </div>
-
-              <div className="flex items-center mt-5 gap-2">
-                <FaPhoneVolume size={22} />
-                <span> +8801305-208332</span>
-              </div>
-              <div className="flex items-center justify-between gap-16 absolute bottom-2.5">
-                <TiLockClosed />
-                <RiHome2Line />
-                <IoCameraOutline />
-              </div>
+    <section id="hero" className="relative min-h-[100dvh] flex flex-col overflow-hidden" style={{ background: "var(--hero-gradient)" }}>
+      <div className="page-container flex-1 flex flex-col justify-center pt-24 pb-8 md:pt-28">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center min-w-0">
+          <Reveal className="lg:col-span-7 xl:col-span-8 min-w-0" animation="fade-right">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
+              <span className="badge">
+                <span className="badge-dot" />
+                Available for projects
+              </span>
+              <span className="hero-period">2024 — Present</span>
             </div>
 
-            {/* Camera Notch */}
-            <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-5 bg-zinc-950 rounded-full"></div>
-          </div>
-        </div>
+            <p className="hero-greeting">Hi, I&apos;m</p>
 
-        {/* RIGHT SIDE - INTRO */}
-        <div
-          data-aos="fade-left"
-          className="w-full lg:w-1/2 text-center lg:text-left"
-        >
-          <h1 className="text-3xl orbitron md:text-4xl lg:text-5xl font-bold leading-tight text-zinc-900">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-pink-500">
-              Abid Hasan <br />
+            <h1 className="hero-title">
+              Abid Hasan
+              <br />
               Plabon
-            </span>
-          </h1>
+            </h1>
 
-          <h2 className="text-xl raleway md:text-2xl mt-4 text-zinc-600">
-            Full Stack MERN Developer
-          </h2>
+            <p className="mt-6 text-body max-w-lg">
+              a <span className="font-medium" style={{ color: "var(--text)" }}>Full Stack Developer</span> from{" "}
+              <span className="font-medium" style={{ color: "var(--text)" }}>Dhaka</span> building apps that hold up in production.
+            </p>
 
-          <p className="mt-6 raleway text-zinc-500 max-w-lg mx-auto lg:mx-0">
-            I code for the web combining UI magic and logics together
-          </p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a href="#projects" className="btn-pill btn-pill-primary">
+                View my work
+                <span className="btn-pill-icon" aria-hidden="true">
+                  <FiArrowRight size={18} />
+                </span>
+              </a>
+              <a href={resume} download="Resume_MERN_Plabon.pdf" className="btn-pill btn-pill-secondary">
+                View resume
+                <span className="btn-pill-icon" aria-hidden="true">
+                  <FiArrowRight size={18} />
+                </span>
+              </a>
+            </div>
+          </Reveal>
 
-          {/* Buttons */}
-          <div className="mt-8 raleway flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a
-              href="mailto:abidhasanplabon80@gmail.com"
-              target="_blank"
-              className="px-6 w-[85%] md:w-full mx-auto text-center py-3 rounded-full bg-gradient-to-r from-blue-600 to-pink-500 text-white font-medium hover:scale-102 transition shadow-zinc-500 duration-300 shadow-lg"
-            >
-              Contact Me
-            </a>
-
-            <a
-              href="../../public/Resume_MERN_Plabon.pdf"
-              download="Resume of Mern Stack Developer Plabon"
-              className="px-6 py-3 w-[85%] md:w-full text-center mx-auto rounded-full border border-zinc-400 flex items-center justify-center gap-2 text-zinc-700 font-medium hover:bg-zinc-100 shadow-2xl shadow-blue-200 transition duration-300"
-            >
-              Resume <MdFileDownload className="animate-pulse" size={25} />
-            </a>
-          </div>
+          <Reveal className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end min-w-0 px-1 sm:px-2" animation="fade-up" delay={160}>
+            <HeroProfileCard image={img} alt="Abid Hasan Plabon" />
+          </Reveal>
         </div>
+      </div>
+
+      <div className="mt-auto border-t" style={{ borderColor: "var(--border)" }}>
+        <Marquee items={STACK} />
       </div>
     </section>
   );

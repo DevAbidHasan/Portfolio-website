@@ -1,43 +1,27 @@
 import { useState, useEffect } from "react";
-import { FaArrowUp } from "react-icons/fa";
+import { FiArrowUp } from "react-icons/fi";
 
 const ScrollToTop = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  // Show button when page is scrolled down
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", toggleVisibility);
-
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const fn = () => setVisible(window.scrollY > 480);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // Scroll to top smoothly
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  if (!visible) return null;
 
   return (
-    <>
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 hover:cursor-pointer rounded-full bg-blue-500 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-400 transition"
-        >
-          <FaArrowUp />
-        </button>
-      )}
-    </>
+    <button
+      type="button"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      aria-label="Scroll to top"
+      className="theme-toggle fixed bottom-6 right-6 z-40 !shadow-md"
+      style={{ boxShadow: "var(--shadow-md)" }}
+    >
+      <FiArrowUp size={18} />
+    </button>
   );
 };
 
