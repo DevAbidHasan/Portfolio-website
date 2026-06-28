@@ -7,8 +7,8 @@ import ThemeToggle from "./ThemeToggle";
 const NAV = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Work", href: "#projects" },
-  { name: "Certifications", href: "#certifications" },
 ];
 
 const Navbar = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    const ids = ["hero", "about", "projects", "certifications"];
+    const ids = ["hero", "about", "experience", "projects"];
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -31,8 +31,8 @@ const Navbar = () => {
             const map = {
               hero: "Home",
               about: "About",
+              experience: "Experience",
               projects: "Work",
-              certifications: "Certifications",
             };
             if (map[e.target.id]) setActive(map[e.target.id]);
           }
@@ -103,20 +103,16 @@ const Navbar = () => {
         </div>
       </header>
 
-      {open && (
-        <div
-          className="fixed inset-0 z-50 md:hidden"
-          style={{ background: "rgba(0,0,0,0.4)" }}
-          onClick={() => setOpen(false)}
-        />
-      )}
+      <div
+        className={`nav-drawer-backdrop md:hidden ${open ? "is-open" : ""}`}
+        onClick={() => setOpen(false)}
+        aria-hidden={!open}
+      />
 
       <aside
-        className={`fixed top-0 right-0 h-full w-80 z-[60] md:hidden transition-transform duration-300 surface-card !rounded-none !border-l`}
-        style={{
-          transform: open ? "translateX(0)" : "translateX(100%)",
-          background: "var(--bg-elevated)",
-        }}
+        className={`nav-drawer md:hidden ${open ? "is-open" : ""}`}
+        aria-hidden={!open}
+        style={{ background: "var(--bg-elevated)" }}
       >
         <div className="flex items-center justify-between p-5" style={{ borderBottom: "1px solid var(--border)" }}>
           <span className="font-display font-semibold" style={{ color: "var(--text)" }}>Navigation</span>
@@ -136,10 +132,10 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        <div className="p-4">
+        <div className="nav-drawer-cta">
           <a
             href="#contact"
-            className="btn-pill btn-pill-primary btn-pill-nav w-full"
+            className="btn-pill btn-pill-primary btn-pill-nav"
             onClick={() => setOpen(false)}
           >
             Contact

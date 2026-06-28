@@ -67,7 +67,7 @@ const Projects = () => {
         <div className="projects-layout">
           <Reveal className="projects-intro lg:sticky lg:top-28" animation="fade-right">
             <p className="section-eyebrow">
-              <span className="section-index">{"{04}"}</span>
+              <span className="section-index">{"{05}"}</span>
               <span className="section-eyebrow-sep"> — </span>
               Projects
             </p>
@@ -92,7 +92,7 @@ const Projects = () => {
           </Reveal>
 
           <div className="projects-main">
-            <div className="projects-filter-bar lg:sticky lg:top-28">
+            <div className="projects-filter-bar">
               <div className="project-filter" role="tablist" aria-label="Project categories">
                 {filterCategories.map((cat) => (
                   <button

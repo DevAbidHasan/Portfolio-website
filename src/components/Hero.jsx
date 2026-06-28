@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../public/PXL_20240130_070044507.jpg";
+import heroImg from "../../public/profile-hero.webp";
 import resume from "../../public/Resume_MERN_Plabon.pdf";
 import { FiArrowRight } from "react-icons/fi";
 import Marquee from "./Marquee";
@@ -71,7 +71,7 @@ const Hero = () => {
           </Reveal>
 
           <Reveal className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end min-w-0 px-1 sm:px-2" animation="fade-up" delay={160}>
-            <HeroProfileCard image={img} alt="Abid Hasan Plabon" />
+            <HeroProfileCard image={heroImg} alt="Abid Hasan Plabon" />
           </Reveal>
         </div>
       </div>

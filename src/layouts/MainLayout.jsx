@@ -9,14 +9,14 @@ import { Toaster } from 'react-hot-toast';
 import { useTheme } from '../context/ThemeContext';
 import { initScrollReveal } from '../utils/scrollReveal';
 
-const EXIT_MS = 750;
+const EXIT_MS = 680;
 
 const MainLayout = () => {
   const [phase, setPhase] = useState('loading');
   const { theme } = useTheme();
 
   useEffect(() => {
-    const minDelay = new Promise((resolve) => setTimeout(resolve, 1300));
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 1500));
     const pageReady = new Promise((resolve) => {
       if (document.readyState === 'complete') resolve();
       else window.addEventListener('load', resolve, { once: true });

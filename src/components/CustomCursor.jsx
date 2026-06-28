@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-const DOT_LERP = 0.62;
-const RING_LERP = 0.11;
+const DOT_LERP = 0.5;
+const RING_LERP = 0.18;
 
 const INTERACTIVE =
-  "a, button, [role='button'], input, textarea, select, label, .btn-primary, .btn-secondary, .btn-pill, .theme-toggle, .theme-switch, .nav-menu-btn, .nav-link";
+  "a, button, [role='button'], input, textarea, select, label, .btn-primary, .btn-secondary, .btn-pill, .theme-toggle, .theme-switch, .nav-menu-btn, .nav-link, .project-filter-btn, .faq-trigger";
+
+const TEXT_INPUT = 'input:not([type="checkbox"]):not([type="radio"]), textarea, [contenteditable="true"]';
 
 const CustomCursor = () => {
   const dotRef = useRef(null);
@@ -18,19 +20,26 @@ const CustomCursor = () => {
   const [enabled, setEnabled] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [pressing, setPressing] = useState(false);
+  const [textMode, setTextMode] = useState(false);
   const [onPage, setOnPage] = useState(false);
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
     const apply = () => {
-      const on = fine.matches;
+      const on = fine.matches && !reduced.matches;
       setEnabled(on);
       document.documentElement.classList.toggle("has-custom-cursor", on);
     };
+
     apply();
     fine.addEventListener("change", apply);
+    reduced.addEventListener("change", apply);
+
     return () => {
       fine.removeEventListener("change", apply);
+      reduced.removeEventListener("change", apply);
       document.documentElement.classList.remove("has-custom-cursor");
     };
   }, []);
@@ -43,7 +52,11 @@ const CustomCursor = () => {
       setOnPage(true);
 
       const el = document.elementFromPoint(e.clientX, e.clientY);
-      setHovering(!!el?.closest(INTERACTIVE));
+      const isText = !!el?.closest(TEXT_INPUT);
+      const interactive = !!el?.closest(INTERACTIVE) && !isText;
+
+      setHovering(interactive);
+      setTextMode(isText);
     };
 
     const onLeave = () => setOnPage(false);
@@ -56,12 +69,11 @@ const CustomCursor = () => {
       ringPos.current.x += (target.current.x - ringPos.current.x) * RING_LERP;
       ringPos.current.y += (target.current.y - ringPos.current.y) * RING_LERP;
 
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${dotPos.current.x}px, ${dotPos.current.y}px, 0)`;
-      }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0)`;
-      }
+      const dotTransform = `translate3d(${dotPos.current.x}px, ${dotPos.current.y}px, 0)`;
+      const ringTransform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0)`;
+
+      if (dotRef.current) dotRef.current.style.transform = dotTransform;
+      if (ringRef.current) ringRef.current.style.transform = ringTransform;
 
       raf.current = requestAnimationFrame(animate);
     };
@@ -87,6 +99,7 @@ const CustomCursor = () => {
     onPage ? "is-visible" : "",
     hovering ? "is-hovering" : "",
     pressing ? "is-pressing" : "",
+    textMode ? "is-text" : "",
   ]
     .filter(Boolean)
     .join(" ");

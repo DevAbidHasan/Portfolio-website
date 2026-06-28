@@ -36,7 +36,7 @@ const Skills = () => {
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <Reveal className="lg:col-span-5 xl:col-span-4 lg:sticky lg:top-28" animation="fade-right">
             <p className="section-eyebrow">
-              <span className="section-index">{"{03}"}</span>
+              <span className="section-index">{"{04}"}</span>
               <span className="section-eyebrow-sep"> — </span>
               Skills
             </p>

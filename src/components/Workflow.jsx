@@ -22,12 +22,12 @@ const steps = [
 
 const Workflow = () => {
   return (
-    <section className="section-block surface-muted">
+    <section className="section-block">
       <div className="page-container">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <Reveal className="lg:col-span-4 lg:sticky lg:top-28" animation="fade-right">
             <p className="section-eyebrow">
-              <span className="section-index">{"{02}"}</span>
+              <span className="section-index">{"{03}"}</span>
               <span className="section-eyebrow-sep"> — </span>
               Process
             </p>

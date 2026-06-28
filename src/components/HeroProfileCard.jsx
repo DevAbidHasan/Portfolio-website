@@ -116,7 +116,15 @@ const HeroProfileCard = ({ image, alt }) => {
       >
         <div className="hero-profile-card">
           <div className="hero-photo-frame">
-            <img src={image} alt={alt} className="hero-photo" />
+            <img
+              src={image}
+              alt={alt}
+              className="hero-photo"
+              width={720}
+              height={900}
+              fetchPriority="high"
+              decoding="async"
+            />
           </div>
           <div className="hero-profile-caption">
             <p className="font-display font-medium text-sm" style={{ color: "var(--text)" }}>

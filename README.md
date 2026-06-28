@@ -31,7 +31,7 @@ Personal portfolio of my, a full-stack developer from Dhaka, Bangladesh. Built w
 
 ## Features
 
-- **Single-page home** with anchored sections (Hero, About, Workflow, Stats, Skills, Projects, Education, Certifications, Contact)
+- **Single-page home** with anchored sections (Hero, About, Experience, Workflow, Stats, Skills, Projects, Services, Education, FAQ, Contact)
 - **Light / dark theme** with `localStorage` persistence and system-preference fallback
 - **Page loader** with smooth exit transition before content appears
 - **Scroll reveal animations** powered by [AOS](https://michalsnik.github.io/aos/) (respects `prefers-reduced-motion`)
@@ -39,7 +39,6 @@ Personal portfolio of my, a full-stack developer from Dhaka, Bangladesh. Built w
 - **Responsive navbar** with mobile drawer, sticky section nav highlights, and contact CTA
 - **Project filtering** by category (Web, AI/ML, Data, Others) with multi-category support
 - **Interactive hero** — 3D-tilt profile card, tech marquee, animated photo border
-- **Certificate cards** with download and verify links
 - **Toast notifications** via `react-hot-toast`
 - **Scroll-to-top** floating button
 
@@ -159,8 +158,6 @@ my-portfolio/
 │   ├── logo-1.png                   # Favicon & navbar logo
 │   ├── PXL_20240130_070044507.jpg   # Profile photo
 │   ├── Resume_MERN_Plabon.pdf       # Downloadable resume
-│   ├── PHero_Certificate_page-0001.jpg
-│   ├── Freecodecamp Certification - Plabon.jpg
 │   └── ...
 │
 ├── src/
@@ -192,8 +189,10 @@ my-portfolio/
 │       ├── Stats.jsx
 │       ├── Skills.jsx
 │       ├── Projects.jsx             # Filterable project list
+│       ├── Experience.jsx           # Work & freelance timeline
+│       ├── Services.jsx             # What I offer
 │       ├── Education.jsx
-│       ├── Certifications.jsx
+│       ├── FAQ.jsx                  # Common questions
 │       ├── CTA.jsx                  # Contact section (#contact)
 │       ├── Loader.jsx               # Initial page loader
 │       ├── ThemeToggle.jsx          # Custom sun/moon switch
@@ -226,12 +225,14 @@ my-portfolio/
        ├── <Outlet />  →  HomeLayout (index route)
        │                    ├── Hero (#hero)
        │                    ├── About (#about)
+       │                    ├── Experience (#experience)
        │                    ├── Workflow
        │                    ├── Stats
        │                    ├── Skills (#skills)
        │                    ├── Projects (#projects)
+       │                    ├── Services (#services)
        │                    ├── Education (#education)
-       │                    ├── Certifications (#certifications)
+       │                    ├── FAQ (#faq)
        │                    └── CTA (#contact)
        └── Footer
 ```
@@ -305,10 +306,24 @@ Edit the `projects` array in `src/components/Projects.jsx`:
 
 Update the `skills` array in `src/components/Skills.jsx`.
 
-### Education & certifications
+### Education
 
-- `src/components/Education.jsx` — `journey` array
-- `src/components/Certifications.jsx` — `certifications` array + images in `public/`
+Update the `journey` array in `src/components/Education.jsx`.
+
+### Experience, services & FAQ
+
+- `src/components/Experience.jsx` — `experiences` array
+- `src/components/Services.jsx` — `services` array
+- `src/components/FAQ.jsx` — `faqs` array
+
+### Contact form
+
+Messages are sent to **abidhasanplabon80@gmail.com** via [Web3Forms](https://web3forms.com/) (free).
+
+1. Create an access key at [web3forms.com](https://web3forms.com/) using your Gmail.
+2. Copy `.env.example` to `.env` and set `VITE_WEB3FORMS_ACCESS_KEY`.
+3. Restart `npm run dev`.
+4. On **Netlify**: Site configuration → Environment variables → add `VITE_WEB3FORMS_ACCESS_KEY`, then redeploy.
 
 ### Navbar links
 
@@ -348,7 +363,11 @@ Output goes to `dist/`. This is a **static SPA** — deploy to any static host.
 
 ### Environment variables
 
-This project does **not** require `.env` files for local development. All content is static. If you add analytics or a contact API later, create `.env` and add `.env` to `.gitignore` (already ignored via `*.local`).
+| Variable | Required | Purpose |
+|----------|----------|---------|
+| `VITE_WEB3FORMS_ACCESS_KEY` | Yes (for contact form) | Web3Forms access key — emails go to your Gmail |
+
+Copy `.env.example` to `.env` locally. Add the same variable in your host dashboard (e.g. Netlify) before deploying.
 
 ---
 
