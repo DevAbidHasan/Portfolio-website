@@ -33,7 +33,10 @@ const ContactForm = () => {
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
       if (err.message === "MISSING_KEY") {
-        toast.error("Form not set up yet. Add your Web3Forms key in .env");
+        toast.error(
+          "Contact form needs a Web3Forms key. Add VITE_WEB3FORMS_ACCESS_KEY to .env and restart the dev server.",
+          { duration: 6000 }
+        );
       } else {
         toast.error("Could not send. Try email or try again later.");
       }
