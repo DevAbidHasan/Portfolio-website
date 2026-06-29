@@ -1,57 +1,8 @@
+import { Link } from "react-router";
 import { useMemo, useState } from "react";
 import { FiArrowRight, FiArrowUpRight, FiGithub } from "react-icons/fi";
 import Reveal from "./Reveal";
-
-const projects = [
-  {
-    title: "Dailypress Portal",
-    description: "Article platform with auth, submissions, and an admin panel — my only production build so far.",
-    image: "https://i.postimg.cc/Gm3Lvm23/Good-Morning-(Facebook-Post).png",
-    live: "https://dailypress-bf298.web.app/",
-    clientRepo: "https://github.com/DevAbidHasan/B11-A12-Dailypress-client",
-    serverRepo: "https://github.com/DevAbidHasan/B11-A12-Dailypress-server",
-    stack: ["React", "Node.js", "MongoDB"],
-    categories: ["Web"],
-  },
-  {
-    title: "Portfolio Website",
-    description: "This site — built to showcase my work, skills, and contact info while job hunting.",
-    image: "https://i.postimg.cc/8zyWJm4T/image.png",
-    live: "https://plabon.netlify.app/",
-    clientRepo: "https://github.com/DevAbidHasan/Portfolio-website",
-    stack: ["React", "Tailwind", "Vite"],
-    categories: ["Web"],
-  },
-  {
-    title: "Booknest",
-    description: "Practice project — library management with borrowing history, built to sharpen full-stack skills.",
-    image: "https://i.ibb.co.com/vCD0RpN1/image.png",
-    live: "https://book-nest-75887.web.app/",
-    clientRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-client",
-    serverRepo: "https://github.com/DevAbidHasan/B11-A11-Booknest-server",
-    stack: ["React", "Express", "MongoDB"],
-    categories: ["Web"],
-  },
-  {
-    title: "Plantpal",
-    description: "Practice project — plant care tracker with schedules and notes, built for learning and demos.",
-    image: "https://i.postimg.cc/KjC1m0DX/image.png",
-    live: "https://plantpal-plant-care-tracking.web.app/",
-    clientRepo: "https://github.com/DevAbidHasan/B11-A10-Plantpal-client",
-    serverRepo: "https://github.com/DevAbidHasan/B11-A10-Plantpal-server",
-    stack: ["React", "Node.js", "Firebase"],
-    categories: ["Web"],
-  },
-];
-
-const filterCategories = ["All", "Web", "AI/ML", "Data", "Others"];
-
-const categoryClass = {
-  Web: "project-category-badge--web",
-  "AI/ML": "project-category-badge--ai",
-  Data: "project-category-badge--data",
-  Others: "project-category-badge--others",
-};
+import { categoryClass, filterCategories, projects } from "../data/projects";
 
 const Projects = () => {
   const [active, setActive] = useState("All");
@@ -121,10 +72,16 @@ const Projects = () => {
                 filtered.map((p, i) => (
                   <Reveal
                     as="article"
-                    key={p.title}
+                    key={p.slug}
                     className="project-row group"
                     delay={i * 100}
                   >
+                    <Link
+                      to={`/projects/${p.slug}`}
+                      className="project-row-stretch"
+                      aria-label={`View ${p.title} details`}
+                    />
+
                     <span className="project-row-index" aria-hidden="true">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -135,7 +92,7 @@ const Projects = () => {
                         <div className="project-row-tags">
                           {p.categories.map((cat) => (
                             <span
-                              key={`${p.title}-${cat}`}
+                              key={`${p.slug}-${cat}`}
                               className={`project-category-badge ${categoryClass[cat] ?? "project-category-badge--others"}`}
                             >
                               {cat}
@@ -152,6 +109,9 @@ const Projects = () => {
                         ))}
                       </div>
                       <div className="project-row-links">
+                        <Link to={`/projects/${p.slug}`} className="project-row-link project-row-link--details">
+                          Details <FiArrowRight size={14} />
+                        </Link>
                         <a
                           href={p.live}
                           target="_blank"
@@ -181,19 +141,13 @@ const Projects = () => {
                       </div>
                     </div>
 
-                    <a
-                      href={p.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-row-thumb"
-                      aria-label={`Preview ${p.title}`}
-                    >
+                    <div className="project-row-thumb" aria-hidden="true">
                       <img
                         src={`${p.image}?auto=format&fit=crop&w=480&q=80`}
                         alt=""
                         loading="lazy"
                       />
-                    </a>
+                    </div>
                   </Reveal>
                 ))
               )}

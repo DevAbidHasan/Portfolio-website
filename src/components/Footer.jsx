@@ -6,11 +6,11 @@ import logo from "../../public/logo-1.png";
 import Reveal from "./Reveal";
 
 const EXPLORE = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Home", href: "/#hero" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const SOCIAL = [
@@ -28,7 +28,7 @@ const Footer = () => {
       <div className="page-container footer-main">
         <Reveal className="footer-grid" animation="fade-up">
           <div className="footer-brand">
-            <a href="#hero" className="footer-logo">
+            <a href="/#hero" className="footer-logo">
               <img src={logo} alt="" width={32} height={32} />
               <span>Abid Hasan Plabon</span>
             </a>
@@ -73,7 +73,7 @@ const Footer = () => {
               <span className="footer-status-dot" aria-hidden="true" />
               Available for full-time, part-time & freelance
             </p>
-            <a href="#contact" className="btn-pill btn-pill-primary footer-cta-btn">
+            <a href="/#contact" className="btn-pill btn-pill-primary footer-cta-btn">
               Get in touch
               <span className="btn-pill-icon" aria-hidden="true">
                 <FiArrowRight size={16} />

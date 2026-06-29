@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router';
 import Navbar from '../components/Navbar';
-import { Outlet } from 'react-router';
 import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import CustomCursor from '../components/CustomCursor';
@@ -14,6 +14,11 @@ const EXIT_MS = 680;
 const MainLayout = () => {
   const [phase, setPhase] = useState('loading');
   const { theme } = useTheme();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   useEffect(() => {
     const minDelay = new Promise((resolve) => setTimeout(resolve, 1500));
@@ -42,7 +47,7 @@ const MainLayout = () => {
     });
 
     return () => cancelAnimationFrame(refreshTimer);
-  }, [phase]);
+  }, [phase, pathname]);
 
   if (phase !== 'done') {
     return <Loader exiting={phase === 'exiting'} />;

@@ -99,7 +99,7 @@ const ContactForm = () => {
         className="btn-pill btn-pill-primary contact-form-submit"
         disabled={sending}
       >
-        {sending ? "Sending…" : "Send"}
+        {sending ? "Sending…" : "Send message"}
         <span className="btn-pill-icon" aria-hidden="true">
           <FiArrowRight size={18} />
         </span>

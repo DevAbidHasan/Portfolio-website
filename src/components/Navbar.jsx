@@ -5,10 +5,10 @@ import { FiArrowRight } from "react-icons/fi";
 import ThemeToggle from "./ThemeToggle";
 
 const NAV = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Work", href: "#projects" },
+  { name: "Home", href: "/#hero" },
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Work", href: "/#projects" },
 ];
 
 const Navbar = () => {
@@ -64,7 +64,7 @@ const Navbar = () => {
         }}
       >
         <div className="page-container flex items-center justify-between h-16 md:h-[4.5rem]">
-          <a href="#hero" className="flex items-center gap-3 shrink-0 group">
+          <a href="/#hero" className="flex items-center gap-3 shrink-0 group">
             <img src={logo} alt="" className="w-8 h-8 rounded-lg transition-transform group-hover:scale-105" />
             <span className="font-display text-sm font-medium hidden sm:block" style={{ color: "var(--text)" }}>
               Abid Hasan
@@ -86,7 +86,7 @@ const Navbar = () => {
 
           <div className="nav-desktop-actions">
             <ThemeToggle />
-            <a href="#contact" className="btn-pill btn-pill-primary btn-pill-nav">
+            <a href="/#contact" className="btn-pill btn-pill-primary btn-pill-nav">
               Contact
               <span className="btn-pill-icon" aria-hidden="true">
                 <FiArrowRight size={16} />
